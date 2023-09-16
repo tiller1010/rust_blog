@@ -7,6 +7,8 @@
   {%- block title %}{% endblock title -%}
   <link rel="stylesheet" href="{{ config.site_url }}/static/main.css">
   {%- block css %}{% endblock css -%}
+  <script src="static/bundle.js"></script>
+  {%- block head %}{% endblock head -%}
 </head>
 <body>
 <header>
