@@ -9,8 +9,9 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
     "blog_wasm": "file:./static/pkg",
-    "esbuild": "^0.12.28"
+    "esbuild": "^0.12.28",
+    "werkbot-framewerk": "werkbot/framewerk#alpha/3.0.0"
   }
 }
