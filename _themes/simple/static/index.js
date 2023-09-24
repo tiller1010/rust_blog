@@ -14,6 +14,7 @@ initFramewerk();
       .then((content) => {
         document.body.innerHTML = content;
         setTimeout(() => {
+          console.log('init framewerk');
           initFramewerk(false);
           window.dispatchEvent(new Event('load'));
         }, 1000);
@@ -38,5 +39,4 @@ initFramewerk();
 })();
 
 console.log('hello from js');
-
 
