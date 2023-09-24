@@ -12,8 +12,11 @@ initFramewerk();
   function getPageContent(url) {
     get_page_content(url)
       .then((content) => {
-        console.log(content);
         document.body.innerHTML = content;
+        setTimeout(() => {
+          initFramewerk(false);
+          window.dispatchEvent(new Event('load'));
+        }, 1000);
         addLinkEventListeners();
       })
       .catch((err) => {
