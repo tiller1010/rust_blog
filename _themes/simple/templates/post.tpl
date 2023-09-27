@@ -7,7 +7,6 @@
 {%- block css %}{% endblock css -%}
 
 {% block main %}
-    <h1>{{ post.title }}</h1>
     <article>
       {{ post.content }}
     </article>

@@ -1,7 +1,7 @@
 header {
   position: relative;
   color: #fff;
-  background: #2ca6cb;
+  background: var(--primaryColor);
 }
 
 header .container {
@@ -38,10 +38,11 @@ header #site-motto {
 
 #header-nav a {
   padding: 0.3rem 0.5rem;
+  text-decoration: none;
 }
 
 #header-nav a:hover {
-  background: #dddddd44;
+  background: var(--secondaryColor);
   border-radius: 0.3rem;
 }
 
@@ -67,12 +68,9 @@ main {
   flex-shrink: 1;
 }
 
-main a {
-  color: #2ca6cb;
-}
 
 main a:hover {
-  background-color: #eee;
+  background-color: var(--secondaryColor);
   border-radius: 4px;
 }
 
@@ -131,7 +129,6 @@ main a sup {
     width: 100%;
     z-index: 100;
     margin: 0;
-    background: #888;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
@@ -145,3 +142,11 @@ main a sup {
     box-sizing: border-box;
   }
 }
+
+a.title {
+  display: inline-block;
+  text-decoration: none;
+  padding: 5px;
+  margin: 5px 0;
+}
+

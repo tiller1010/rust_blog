@@ -19,7 +19,7 @@
   {%- for post in posts %}
     <section>
       <span>{{ post.headers.created | date }}</span>
-      <span class="title"><a href="{{ config.site_url }}{{ post.url  | urlencode }}">{{ post.title }}</a></span>
+      <span class="title"><a href="{{ config.site_url }}{{ post.formatted_path  | urlencode }}">{{ post.title }}</a></span>
     </section>
   {%- endfor %}
   </article>

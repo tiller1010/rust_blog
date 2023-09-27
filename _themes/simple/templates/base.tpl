@@ -35,7 +35,11 @@
 </main>
 
 <footer>
-  <div class="container">{{ config.footer_note }}</div>
+  <div class="container">
+    <div class="fw-space">
+      {{ config.footer_note }}
+    </div>
+  </div>
 </footer>
 
 <script>
