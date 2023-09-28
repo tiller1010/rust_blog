@@ -12,7 +12,7 @@
 </head>
 <body>
 <header>
-  <div class="container">
+  <div class="fw-container">
     <div id="site">
       <div id="site-name">
         <a href="{{ config.site_url }}/index.html" title="{{ config.site_name }}">{{ config.site_name }}</a>
@@ -30,12 +30,12 @@
   </div>
 </header>
 
-<main class="container">
+<main class="fw-container fw-typography-spacing">
   {%- block main %}{% endblock main %}
 </main>
 
 <footer>
-  <div class="container">
+  <div class="fw-container">
     <div class="fw-space">
       {{ config.footer_note }}
     </div>

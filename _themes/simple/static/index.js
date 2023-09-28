@@ -8,6 +8,9 @@ const fwProperties = {
   textColorDark: '#FFFFFF',
   primaryColor: '#353435',
   secondaryColor: '#4e4e4e',
+  componentTypographyProperties_HeadingMargin: '0 0 10px 0',
+  elementPProperties_margin: '0 0 10px 0',
+  layoutContainerWidth: '800px',
 }
 
 initFramewerk();
@@ -42,6 +45,11 @@ customizeFramewerk(fwProperties);
     });
   }
   addLinkEventListeners();
+
+  window.addEventListener('popstate', (e) => {
+    e.preventDefault();
+    getPageContent(location.href);
+  });
 
 })();
 

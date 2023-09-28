@@ -4,7 +4,7 @@ header {
   background: var(--primaryColor);
 }
 
-header .container {
+header .fw-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -148,5 +148,17 @@ a.title {
   text-decoration: none;
   padding: 5px;
   margin: 5px 0;
+}
+
+pre {
+  background-color: var(--secondaryColor);
+  border: 1px solid transparent;
+  margin: 1rem 0 2rem;
+  padding: 1rem 2.5rem 1rem 1rem;
+}
+
+main img {
+  display: block;
+  margin: 10px auto;
 }
 
