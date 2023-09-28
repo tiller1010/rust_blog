@@ -28,12 +28,19 @@ customizeFramewerk(fwProperties);
           initFramewerk();
           window.dispatchEvent(new Event('load'));
         }, 1000);
-        addLinkEventListeners();
+        addEventListeners();
+        window.scrollTo(0, 0);
       })
       .catch((err) => {
         console.log(err);
       });
   }
+
+  function addEventListeners() {
+    addLinkEventListeners();
+    addMenuEventListeners();
+  };
+  addEventListeners();
 
   function addLinkEventListeners() {
     document.querySelectorAll('a').forEach((link) => {
@@ -44,7 +51,41 @@ customizeFramewerk(fwProperties);
       });
     });
   }
-  addLinkEventListeners();
+
+  function addMenuEventListeners() {
+    var menu = document.getElementById('menu');
+    if (!menu) {
+      return;
+    }
+
+    var headerNav = document.getElementById('header-nav');
+    menu.addEventListener('click', function() {
+      if (headerNav.style.display === "flex") {
+        headerNav.style.display = "none";
+      } else {
+        headerNav.style.display = "flex";
+      }
+    });
+
+    document.addEventListener('click', function(evt) {
+      if (!window.matchMedia("(max-width: 767px)").matches) {
+        return;
+      }
+      if (headerNav.style.display !== 'flex') {
+        return;
+      }
+
+      let targetElement = evt.target;
+      do {
+        if (targetElement == menu) {
+          return;
+        }
+        targetElement = targetElement.parentNode;
+      } while (targetElement);
+
+      headerNav.style.display = "none";
+    });
+  };
 
   window.addEventListener('popstate', (e) => {
     e.preventDefault();
@@ -52,6 +93,4 @@ customizeFramewerk(fwProperties);
   });
 
 })();
-
-console.log('hello from js');
 
