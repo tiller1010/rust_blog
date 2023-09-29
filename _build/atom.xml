@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id></id>
   <title>Tyler Trout's Blog</title>
-  <updated>2023-09-28T08:56:09-04:00</updated>
+  <updated>2023-09-28T23:34:52-04:00</updated>
   <subtitle>Full Stack Web Development</subtitle>
   <icon>/media/favicon.png</icon>
   <logo>/media/favicon.png</logo>
@@ -10,20 +10,6 @@
   <link rel="self" type="application/atom+xml" href="/atom.xml" />
   <generator uri="https://github.com/FuGangqiang/mdblog.rs">mdblog.rs</generator>
   <entry>
-    <id>/posts%5CTyler_Trouts_Blog.html</id>
-    <title>Tyler_Trouts_Blog</title>
-    <updated>2023-08-26T12:19:39+00:00</updated>
-    <published>2023-08-26T12:19:39+00:00</published>
-    <link href="/posts%5CTyler_Trouts_Blog.html"/>
-    <summary># Tyler Trouts Blog...</summary>
-    <content type="html" xml:lang="en" xml:base="">
-        <![CDATA[
-        <h1>Tyler Trouts Blog</h1>
-<p>Today, I am starting my first WordPress blog to improve my writing ability and to have a place to document new things that I learn. I bought a domain name and hosting with Hostinger. I have never hosted any of my projects on anything other than GitHub pages. I have heard horror stories of other hosting services injecting harmful code into websites so the whole process seemed daunting at first. However, Hostinger seemed to be the best choice for me. Their service is extremely affordable, and they have great customer service. When setting all of this up, I struggled to understand how to migrate my local version of WordPress to the internet. To my surprise, all it took were a few Google searches and a friendly conversation with one of their support members for me to be on my way. Hostinger seems to have hundreds of helpful articles that make this process easier than I imagined. After I was online, I took to the WordPress store to find a decent looking theme that I could create a child variation of. I found 'Bloggo' to be a clean and neat base theme. I spent a few hours changing the color scheme and font to make the theme my own, and here we are, all up and running. All I needed now was to write a post, and this will be the first of many posts posts that will appear on my blog.</p>
-
-        ]]>
-    </content>
-  </entry><entry>
     <id>/posts%5CManage_multiple_versions_with_gitflow_and_GitHub.html</id>
     <title>Manage_multiple_versions_with_gitflow_and_GitHub</title>
     <updated>2022-09-04T21:46:01+00:00</updated>
@@ -44,23 +30,184 @@
 <p>All new features should be created from the &quot;develop&quot; branch. No GitHub actions need to run on pull requests created for feature branches into the develop branch, but you may choose to enforce labels on your features. Making sure the feature in review has the appropriate semantic versioning label will be helpful for when we create &quot;release&quot; branches later.</p>
 <h2>Draft a release on &quot;release/*&quot; push</h2>
 <p>By far the best benefit of using git-flow with GitHub is that releases can be properly reviewed in the form of a pull request. A GitHub action could be created that drafts a release when a push is made to a &quot;release/*&quot; branch.</p>
-<pre><code>on:  push:    branches:      - release/*permissions:  contents: readjobs:  update_release_draft:    permissions:      contents: write    runs-on: ubuntu-latest    steps:      - name: Checkout        uses: actions/checkout@master      # Get the release tag      - name: Get release Tag        id: get_release_tag        run: |          RELEASETAG=$(git branch | grep \* | sed -re &quot;s/release\///;s/\*//;s/\s*//g&quot;)          echo &quot;::set-output name=release_tag::$RELEASETAG&quot;      # Draft Release with release branch      - name: Draft Release with release branch        id: update_release_draft_with_release_branch        uses: release-drafter/release-drafter@master        with:          tag: ${{ steps.get_release_tag.outputs.release_tag }}        env:          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+<pre><code>on:
+  push:
+    branches:
+      - release/*
+
+permissions:
+  contents: read
+
+jobs:
+  update_release_draft:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      # Get the release tag
+      - name: Get release Tag
+        id: get_release_tag
+        run: |
+          RELEASETAG=$(git branch | grep \* | sed -re &quot;s/release\///;s/\*//;s/\s*//g&quot;)
+          echo &quot;::set-output name=release_tag::$RELEASETAG&quot;
+
+      # Draft Release with release branch
+      - name: Draft Release with release branch
+        id: update_release_draft_with_release_branch
+        uses: release-drafter/release-drafter@master
+        with:
+          tag: ${{ steps.get_release_tag.outputs.release_tag }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 </code></pre>
 <h2>Publish the draft release when &quot;release/*&quot; PRs are merged</h2>
 <p>When a release branch is merged into &quot;main&quot; the release that was drafted for that pull request can be published. Doing so creates a tag. After the corresponding release is published, the &quot;release/*&quot; branch can be automatically deleted by a GitHub action.</p>
-<pre><code>on:  pull_request:    types:      - closed    branches:      - mainjobs:  publish_release:    if: ${{ github.event.pull_request.merged }}    runs-on: ubuntu-latest    steps:      # Get the latest draft release. This requires authentication.      - name: Get release id        id: get_release_id        run: |          TOKEN=${{ secrets.GITHUB_TOKEN }}          RELEASEID=$(curl -H &quot;Accept: application/vnd.github+json&quot; -H &quot;Authorization: token $TOKEN&quot; https://api.github.com/repos/[YOURNAME]/[REPONAME]/releases)          RELEASEID=$(echo &quot;$RELEASEID&quot; | grep \&quot;id\&quot;  | head -n 1 | sed -re &quot;s/[a-z]*//g;s/[-|,|:|'\&quot;]//g;s/\s//g&quot;)          echo &quot;::set-output name=release_id::$RELEASEID&quot;        env:          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}      # Publish the release draft      - name: Publish release        uses: eregon/publish-release@v1        env:          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}        with:          release_id: ${{ steps.get_release_id.outputs.release_id }}      # Get payload info from the pull request      - name: Payload info        id: payload_info        uses: Dovyski/payload-info-action@master        continue-on-error: true      # Remove the release or hotfix branch after publishing      - name: Remove PR branch        uses: dawidd6/action-delete-branch@v3        with:          github_token: ${{github.token}}          branches: ${{ steps.payload_info.outputs.branch }}
+<pre><code>on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
+
+jobs:
+  publish_release:
+    if: ${{ github.event.pull_request.merged }}
+    runs-on: ubuntu-latest
+    steps:
+      # Get the latest draft release. This requires authentication.
+      - name: Get release id
+        id: get_release_id
+        run: |
+          TOKEN=${{ secrets.GITHUB_TOKEN }}
+          RELEASEID=$(curl -H &quot;Accept: application/vnd.github+json&quot; -H &quot;Authorization: token $TOKEN&quot; https://api.github.com/repos/[YOURNAME]/[REPONAME]/releases)
+          RELEASEID=$(echo &quot;$RELEASEID&quot; | grep \&quot;id\&quot;  | head -n 1 | sed -re &quot;s/[a-z]*//g;s/[-|,|:|'\&quot;]//g;s/\s//g&quot;)
+          echo &quot;::set-output name=release_id::$RELEASEID&quot;
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Publish the release draft
+      - name: Publish release
+        uses: eregon/publish-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          release_id: ${{ steps.get_release_id.outputs.release_id }}
+
+      # Get payload info from the pull request
+      - name: Payload info
+        id: payload_info
+        uses: Dovyski/payload-info-action@master
+        continue-on-error: true
+
+      # Remove the release or hotfix branch after publishing
+      - name: Remove PR branch
+        uses: dawidd6/action-delete-branch@v3
+        with:
+          github_token: ${{github.token}}
+          branches: ${{ steps.payload_info.outputs.branch }}
 </code></pre>
 <h2>Merge main into develop</h2>
 <p>After a release branch is merged into the main branch, it should be merged back into the &quot;develop&quot; branch. Optionally, you could set GitHub actions to create a commit that updates a CHANGELOG.md file before this merge occurs.</p>
-<pre><code>on:  push:    branches:      - mainpermissions:  contents: writejobs:  sync_develop:    runs-on: ubuntu-latest    steps:      - name: Checkout        uses: actions/checkout@master      - name: Merge main -&gt; develop        uses: devmasx/merge-branch@master        with:          type: now          from_branch: main          target_branch: develop          github_token: ${{ secrets.GITHUB_TOKEN }}          message: Merged main into develop
+<pre><code>on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  sync_develop:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Merge main -&gt; develop
+        uses: devmasx/merge-branch@master
+        with:
+          type: now
+          from_branch: main
+          target_branch: develop
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          message: Merged main into develop
 </code></pre>
 <h2>Draft releases on &quot;hotfix/*&quot; push</h2>
 <p>When you must support a previous minor or major version, you should start by checking out that tag. Make sure to checkout the latest patch for that minor or major version. Then, you should create a &quot;support/*.x&quot; branch. Support branches should function similarly to the &quot;main&quot; branch. Tags will be created when &quot;hotfix/*&quot; branches are merged into it, and commits should <strong>not</strong> be added to it directly. After creating the support branch, a &quot;hotfix/*&quot; branch with the next patch number should be created. These are similar to the &quot;release/*&quot; branches, as they should be reviewed in a pull request, and when they are merged, Git actions should <strong>publish</strong> the drafted release and delete the &quot;hotfix/*&quot; branch (similar to when a &quot;release/*&quot; branch is merged, see the above example).</p>
-<pre><code>on:  push:    branches:      - hotfix/*jobs:  update_release_draft:    permissions:      contents: write    runs-on: ubuntu-latest    steps:      - name: Checkout        uses: actions/checkout@master      # Get the hotfix tag      - name: Get hotfix Tag        id: get_hotfix_tag        run: |          RELEASETAG=$(git branch | grep \* | sed -re &quot;s/hotfix\///;s/\*//;s/\s*//g&quot;)          echo &quot;::set-output name=release_tag::$RELEASETAG&quot;      # Draft Release with hotfix branch      - name: Draft Release with hotfix branch        id: update_release_draft_with_hotfix_branch        uses: release-drafter/release-drafter@master        with:          tag: ${{ steps.get_hotfix_tag.outputs.release_tag }}        env:          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+<pre><code>on:
+  push:
+    branches:
+      - hotfix/*
+
+jobs:
+  update_release_draft:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      # Get the hotfix tag
+      - name: Get hotfix Tag
+        id: get_hotfix_tag
+        run: |
+          RELEASETAG=$(git branch | grep \* | sed -re &quot;s/hotfix\///;s/\*//;s/\s*//g&quot;)
+          echo &quot;::set-output name=release_tag::$RELEASETAG&quot;
+
+      # Draft Release with hotfix branch
+      - name: Draft Release with hotfix branch
+        id: update_release_draft_with_hotfix_branch
+        uses: release-drafter/release-drafter@master
+        with:
+          tag: ${{ steps.get_hotfix_tag.outputs.release_tag }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 </code></pre>
 <h2>Merge support into main and develop</h2>
 <p>If a bug existed in a previous version, it is likely that it still exists in the latest version too. Similar to &quot;release/*&quot; branches that are merged into the main branch, support branches too should be merged into the main branch and then merged again into the develop branch when a &quot;hotfix/*&quot; branch is merged into one. There is, however, a higher potential for this merge to conflict with the main branch. In that case, a developer must resolve the conflict on their own, and push the resolved merge into the main branch.</p>
-<pre><code>on:  push:    branches:      - support/*permissions:  contents: writejobs:  sync_develop:    runs-on: ubuntu-latest    steps:      - name: Checkout        uses: actions/checkout@master      # Get the support branch      - name: Get support branch        id: get_support_branch        run: |          SUPPORTBRANCH=$(git branch | grep \* | sed -re &quot;s/[\*|\ ]//g&quot;)          echo &quot;::set-output name=support_branch::$SUPPORTBRANCH&quot;      - name: Merge support -&gt; main        uses: devmasx/merge-branch@master        with:          type: now          from_branch: ${{ steps.get_support_branch.outputs.support_branch }}          target_branch: main          github_token: ${{ secrets.GITHUB_TOKEN }}          message: Merged ${{ steps.get_support_branch.outputs.support_branch }} into main      - name: Merge main -&gt; develop        uses: devmasx/merge-branch@master        with:          type: now          from_branch: main          target_branch: develop          github_token: ${{ secrets.GITHUB_TOKEN }}          message: Merged main into develop
+<pre><code>on:
+  push:
+    branches:
+      - support/*
+
+permissions:
+  contents: write
+
+jobs:
+  sync_develop:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      # Get the support branch
+      - name: Get support branch
+        id: get_support_branch
+        run: |
+          SUPPORTBRANCH=$(git branch | grep \* | sed -re &quot;s/[\*|\ ]//g&quot;)
+          echo &quot;::set-output name=support_branch::$SUPPORTBRANCH&quot;
+
+      - name: Merge support -&gt; main
+        uses: devmasx/merge-branch@master
+        with:
+          type: now
+          from_branch: ${{ steps.get_support_branch.outputs.support_branch }}
+          target_branch: main
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          message: Merged ${{ steps.get_support_branch.outputs.support_branch }} into main
+
+      - name: Merge main -&gt; develop
+        uses: devmasx/merge-branch@master
+        with:
+          type: now
+          from_branch: main
+          target_branch: develop
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          message: Merged main into develop
 </code></pre>
 <p>I hope you decide to use git-flow in your projects! It adds much-needed sanity to the management of multiple versions of software.</p>
 
@@ -83,7 +230,8 @@
 <pre><code>$facebook = new \Vendor\SocialMedia\SocialMediaLink();
 </code></pre>
 <p>Or you could include the class with the &quot;use&quot; statement:</p>
-<pre><code>use Vendor\SocialMedia\SocialMediaLink; $facebook = new SocialMediaLink();
+<pre><code>use Vendor\SocialMedia\SocialMediaLink;
+$facebook = new SocialMediaLink();
 </code></pre>
 <p>Namespacing your modules ensures that the class names never conflict with those that are defined globally.</p>
 <h2>Write Methods for common actions</h2>
@@ -93,7 +241,16 @@
 <h2>Use Classes to Encapsulate Components</h2>
 <p>If you are familiar with Object-Oriented Programming (OOP), you know that you can use classes to encapsulate certain behaviors of your components. In object-oriented programming languages like PHP, you might have a class that represents some type of model. That model will be responsible for defining some data structure, and it will likely provide methods to interact with related components. For example, you might have a class called &quot;Page&quot;. This model might define fillable database fields like &quot;HTML Content&quot; and &quot;Featured Images&quot;. This class could have methods to interact with these relationships, such as a &quot;getRecentFeaturedImages&quot; method.</p>
 <p>A website will commonly have different types of pages. Some functionality should be shared between all pages, but some pages will have different concerns. For example, a blog page might be responsible for storing and fetching written articles. A home page will usually feature a large banner image, video, or slideshow. If we want our &quot;Page&quot; class to be extendable, it should only be concerned with the functionality that should be shared across every page type. We could then extend the Page class for each page type and add the appropriate functionality:</p>
-<pre><code>class Page{ // Define the functionality that should exist on all pages ...}class HomePage extends Page{  // This inherits from &quot;Page&quot;, so just define everything unique to a Home Page ...}
+<pre><code>class Page
+{
+ // Define the functionality that should exist on all pages
+ ...
+}
+class HomePage extends Page
+{
+ // This inherits from &quot;Page&quot;, so just define everything unique to a Home Page
+ ...
+}
 </code></pre>
 <h2>Conclusion</h2>
 <p>Writing reusable code has a plethora of benefits, as you have seen. Employing these tips means writing code that is consistent everywhere, even across projects. When many common actions are abstracted into separate methods, the code will naturally become more readable and declarative, as most methods will call other methods, each with descriptive names. When functionality needs to be shared between components, having a shared base class that each extends means writing less code overall. While it might be easy to simply paste in some code that is already used somewhere else, it will be more difficult to maintain later on should things change. Instead, think about how to keep each bit of your code clear in its purpose, so that it is reusable, should you need it for something else tomorrow.</p>
@@ -229,6 +386,20 @@
 <img alt="" src="https://tylertroutblog.com/wp-content/uploads/2019/08/coderie.png" height="78" width="332" />
 <p>In addition to the practice I get at Werkbot, I have also developed my communication skills outside of the office. I recently gave a talk at the Coderie Meetup group about my experiences. The idea was given to me by a member of Werkbot. It went very well, and I even wrote a brief blog post about the experience <a href="https://tylertroutblog.com/presentation-was-a-success/">here</a>. Public speaking also helps improve my ability to talk to clients. I have had a few face to face meetings with small business owners who are looking for their own website. In these meetings, I have been able to showcase what I have been working on, as well as receive feedback to move forward with. Not everyone has met with me in person, though I have finished websites for both clients that I met online exclusively and for those I met in person.</p>
 <p>During my internship at Werkbot, my skills as a developer have improved greatly. I am able to use SilverStripe to create dynamic websites. I practiced my communication with other developers, staff, and clients. Lastly, I took what I learned, and I applied it to my own work. With no school experience, I feel privileged to have had this opportunity, and it has been an awesome adventure.</p>
+
+        ]]>
+    </content>
+  </entry><entry>
+    <id>/posts%5CPresentation_was_a_success.html</id>
+    <title>Presentation_was_a_success</title>
+    <updated>2019-07-30T13:53:12+00:00</updated>
+    <published>2019-07-30T13:53:12+00:00</published>
+    <link href="/posts%5CPresentation_was_a_success.html"/>
+    <summary># Presentation was a success...</summary>
+    <content type="html" xml:lang="en" xml:base="">
+        <![CDATA[
+        <h1>Presentation was a success</h1>
+<p>I recently gave a presentation at the Coderie meetup group. My talk was about the strategies I use to teach myself, instead of going through a traditional education system. Many of those who attended the meetup have been in the field for some time or even own businesses of their own. I had some initial jitters about the idea, but I am glad that I was able to leave my comfort zone. I got to talk one on one with some very experienced people who congratulated me on my talk.</p>
 
         ]]>
     </content>

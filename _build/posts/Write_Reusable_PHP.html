@@ -36,7 +36,8 @@
 <pre><code>$facebook = new \Vendor\SocialMedia\SocialMediaLink();
 </code></pre>
 <p>Or you could include the class with the &quot;use&quot; statement:</p>
-<pre><code>use Vendor\SocialMedia\SocialMediaLink; $facebook = new SocialMediaLink();
+<pre><code>use Vendor\SocialMedia\SocialMediaLink;
+$facebook = new SocialMediaLink();
 </code></pre>
 <p>Namespacing your modules ensures that the class names never conflict with those that are defined globally.</p>
 <h2>Write Methods for common actions</h2>
@@ -46,7 +47,16 @@
 <h2>Use Classes to Encapsulate Components</h2>
 <p>If you are familiar with Object-Oriented Programming (OOP), you know that you can use classes to encapsulate certain behaviors of your components. In object-oriented programming languages like PHP, you might have a class that represents some type of model. That model will be responsible for defining some data structure, and it will likely provide methods to interact with related components. For example, you might have a class called &quot;Page&quot;. This model might define fillable database fields like &quot;HTML Content&quot; and &quot;Featured Images&quot;. This class could have methods to interact with these relationships, such as a &quot;getRecentFeaturedImages&quot; method.</p>
 <p>A website will commonly have different types of pages. Some functionality should be shared between all pages, but some pages will have different concerns. For example, a blog page might be responsible for storing and fetching written articles. A home page will usually feature a large banner image, video, or slideshow. If we want our &quot;Page&quot; class to be extendable, it should only be concerned with the functionality that should be shared across every page type. We could then extend the Page class for each page type and add the appropriate functionality:</p>
-<pre><code>class Page{ // Define the functionality that should exist on all pages ...}class HomePage extends Page{  // This inherits from &quot;Page&quot;, so just define everything unique to a Home Page ...}
+<pre><code>class Page
+{
+ // Define the functionality that should exist on all pages
+ ...
+}
+class HomePage extends Page
+{
+ // This inherits from &quot;Page&quot;, so just define everything unique to a Home Page
+ ...
+}
 </code></pre>
 <h2>Conclusion</h2>
 <p>Writing reusable code has a plethora of benefits, as you have seen. Employing these tips means writing code that is consistent everywhere, even across projects. When many common actions are abstracted into separate methods, the code will naturally become more readable and declarative, as most methods will call other methods, each with descriptive names. When functionality needs to be shared between components, having a shared base class that each extends means writing less code overall. While it might be easy to simply paste in some code that is already used somewhere else, it will be more difficult to maintain later on should things change. Instead, think about how to keep each bit of your code clear in its purpose, so that it is reusable, should you need it for something else tomorrow.</p>
