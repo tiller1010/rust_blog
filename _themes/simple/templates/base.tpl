@@ -14,10 +14,12 @@
 <header>
   <div class="fw-container">
     <div id="site">
-      <div id="site-name">
-        <a href="{{ config.site_url }}/index.html" title="{{ config.site_name }}">{{ config.site_name }}</a>
-      </div>
-      <div id="site-motto">{{ config.site_motto }}</div>
+      <a href="{{ config.site_url }}/index.html" title="{{ config.site_name }}">
+        <div id="site-name">
+          {{ config.site_name }}
+        </div>
+        <div id="site-motto">{{ config.site_motto }}</div>
+      </a>
     </div>
     <nav id="header-nav">
       <a href="{{ config.site_url }}/index.html">Blog</a>

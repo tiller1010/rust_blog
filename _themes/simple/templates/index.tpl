@@ -16,10 +16,15 @@
 {% block main %}
   <article>
     {%- for post in posts %}
-      <section>
-        <span>{{ post.headers.created | date(format="%Y-%m-%d") }}</span>
-        <a class="title" href="{{ config.site_url }}{{ post.formatted_path  | urlencode }}">{{ post.title }}</a>
+      <section class="flex-container flex-vertical-center">
+        <div class="desktop-13 phone-100">
+          <span class="article-date">{{ post.headers.created | date(format="%Y-%m-%d") }}</span>
+        </div>
+        <div class="desktop-87 phone-100">
+          <a class="title" href="{{ config.site_url }}{{ post.formatted_path  | urlencode }}">{{ post.title }}</a>
+        </div>
       </section>
+      <hr class="desktop-hide phone-show"/>
     {%- endfor %}
   </article>
 

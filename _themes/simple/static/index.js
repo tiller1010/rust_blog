@@ -36,9 +36,15 @@ customizeFramewerk(fwProperties);
       });
   }
 
+  window.addEventListener('popstate', (e) => {
+    e.preventDefault();
+    getPageContent(location.href);
+  });
+
   function addEventListeners() {
     addLinkEventListeners();
     addMenuEventListeners();
+    addCodeCopyEventListeners();
   };
   addEventListeners();
 
@@ -87,10 +93,20 @@ customizeFramewerk(fwProperties);
     });
   };
 
-  window.addEventListener('popstate', (e) => {
-    e.preventDefault();
-    getPageContent(location.href);
-  });
+  function addCodeCopyEventListeners() {
+    document.querySelectorAll('pre').forEach((pre) => {
+      const copyButton = document.createElement('button');
+      copyButton.innerText = 'Copy';
+      copyButton.classList.add('copy-code-btn');
+      copyButton.classList.add('button');
+      pre.appendChild(copyButton);
+      pre.addEventListener('click', (e) => {
+        e.preventDefault();
+        const copyText = pre.querySelector('code').innerText;
+        navigator.clipboard.writeText(copyText);
+      });
+    });
+  }
 
 })();
 
