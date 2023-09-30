@@ -17,13 +17,13 @@ header #site {
   margin: 1rem;
 }
 
-header #site-name {
-  font-size: 2.4rem;
+header #site a {
+  text-decoration: none;
 }
 
-header #site-name a {
+header #site-name {
+  font-size: 2.4rem;
   line-height: 1.2;
-  text-decoration: none;
 }
 
 header #site-motto {
@@ -125,7 +125,7 @@ main a sup {
     margin: 0 1rem;
   }
 
-  header #site-name a {
+  header #site-name {
     font-size: 1.25rem;
   }
 
@@ -147,10 +147,10 @@ main a sup {
   }
 
   #header-nav a {
-    width: 100%;
-    font-size: 1.5rem;
+    width: 95%;
+    font-size: 1rem;
     padding: 0.5rem;
-    margin: 5px;
+    margin: 5px auto;
     border-radius: 0px;
     box-sizing: border-box;
   }
@@ -164,11 +164,13 @@ a.title {
 }
 
 pre {
+  position: relative;
   background-color: var(--secondaryColor);
   border: 1px solid transparent;
   margin: 1rem 0 2rem;
   padding: 1rem 2.5rem 1rem 1rem;
   overflow-x: auto;
+  cursor: pointer;
 }
 
 main img {
@@ -176,5 +178,20 @@ main img {
   margin: 20px auto;
   max-width: 100%;
   object-fit: contain;
+}
+
+.copy-code-btn.button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  pointer-events: none;
+}
+
+.article-date {
+  display: inline-block;
+  background-color: var(--secondaryColor);
+  padding: 5px;
+  margin: 5px 0;
+  border-radius: 5px;
 }
 

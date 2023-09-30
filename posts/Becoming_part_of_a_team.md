@@ -6,9 +6,13 @@ tags: [git]
 
 As of this writing, I am a few weeks into my first job as a junior web developer. I am thrilled to become part of an active development team. I had practiced and learned on my own, and now I must do so in a team. The first few days have taught me a few things about working in a business setting. I have learned that it is important to keep track of the time that I put into my tasks. I am becoming more familiar with the process of submitting pull requests and receiving code reviews. I have learned to keep track of cards and organize my assignments with Trello.
 
+## Doing real work for the real world
+
 When working on projects for real clients, it is important to be accurate and transparent with the cost of development. It also helps developers have a better estimate on the amount of time a feature will take to build. That is why it is important for me to track my times. I was introduced to a program called "Minute7". It is a simple and handy tool for tracking time. I simply enter the client, the task, and the times I started and concluded working on a task. It is not overly complex, and it helps those on the business end accurately quote clients and make more informed decisions.
 
 <img alt="" src="https://tylertroutblog.com/wp-content/uploads/2019/09/minute7-1024x576.jpg" height="170" width="302" />
+
+## Working with teammates
 
 With my new assignments, I get to practice the process of submitting pull requests. I am more comfortable creating branches for specific requests, and leaving helpful descriptions for the developers reviewing my code. After my code is reviewed, I go back through my code to make the appropriate changes. If everything looks good, I merge and delete the branch I was working on. Git and GitHub are very useful and robust tools especially when working in a team.
 
