@@ -156,11 +156,18 @@ main a sup {
   }
 }
 
+/* Custom Stuff Is Mostly Down Here */
 a.title {
   display: inline-block;
   text-decoration: none;
   padding: 5px;
   margin: 5px 0;
+  width: 100%;
+  text-transform: capitalize;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-transform: capitalize;
 }
 
 pre {
