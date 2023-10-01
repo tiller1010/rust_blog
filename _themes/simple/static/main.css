@@ -170,6 +170,21 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: capitalize;
 }
 
+.heading-anchor {
+  position: relative;
+  display: block;
+  text-decoration: none;
+}
+.heading-anchor:hover {
+  text-decoration: underline;
+}
+.heading-anchor:hover:before {
+  content: "#";
+  position: absolute;
+  left: -1.5rem;
+  font-size: 2rem;
+}
+
 pre {
   position: relative;
   background-color: var(--secondaryColor);
