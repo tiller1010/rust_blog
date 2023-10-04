@@ -217,3 +217,8 @@ main img {
   border-radius: 5px;
 }
 
+footer {
+  min-height: 75vh;
+  background-color: var(--primaryColor);
+}
+

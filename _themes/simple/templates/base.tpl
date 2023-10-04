@@ -36,10 +36,12 @@
   {%- block main %}{% endblock main %}
 </main>
 
-<footer>
+<footer class="fw-typography-spacing">
   <div class="fw-container">
     <div class="fw-space">
-      {{ config.footer_note }}
+      <p class="text-center">
+        {{ config.footer_note }}
+      </p>
     </div>
   </div>
 </footer>

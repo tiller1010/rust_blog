@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id></id>
   <title>Tyler Trout's Blog</title>
-  <updated>2023-10-04T14:51:30-04:00</updated>
+  <updated>2023-10-04T16:40:59-04:00</updated>
   <subtitle>Full Stack Web Development</subtitle>
   <icon>/media/favicon.png</icon>
   <logo>/media/favicon.png</logo>
@@ -37,10 +37,11 @@
     <updated>2022-09-04T21:46:01+00:00</updated>
     <published>2022-09-04T21:46:01+00:00</published>
     <link href="/posts%5CManage_multiple_versions_with_gitflow_and_GitHub.html"/>
-    <summary># Manage multiple versions with gitflow and GitHub...</summary>
+    <summary>tags: [actions] # Manage multiple versions with gitflow and GitHub Imagine this: you want to add a new feature to a repository, but it involves a change that will break backward compatibility. You could release a new major version, but other repositories may depend on the previous version of your software. In this case, you need to support an older version simultaneously with the next major version. Git-flow is a branching strategy that eases the burden of managing multiple versions, but it can be tricky to implement in a team using GitHub. Git-flow provides several benefits: * Git-flow uses distinct...</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
-        <h1>Manage multiple versions with gitflow and GitHub</h1>
+        <p>tags: [actions]</p>
+<h1>Manage multiple versions with gitflow and GitHub</h1>
 <p>Imagine this: you want to add a new feature to a repository, but it involves a change that will break backward compatibility. You could release a new major version, but other repositories may depend on the previous version of your software. In this case, you need to support an older version simultaneously with the next major version. Git-flow is a branching strategy that eases the burden of managing multiple versions, but it can be tricky to implement in a team using GitHub. Git-flow provides several benefits:</p>
 <ul>
 <li>Git-flow uses distinct and obvious branch roles: branches are annotated with their specific purpose (feature, release, support, and hotfix).</li>
