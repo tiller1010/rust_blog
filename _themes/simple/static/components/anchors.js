@@ -8,19 +8,24 @@ export const addAnchorsToHeadings = () => {
 
     const anchorHash = '#' + heading.id;
 
-    if (window.location.hash === anchorHash) {
-      scrollTo(heading.offsetLeft, heading.offsetTop - header.offsetHeight - 10);
-    }
-
     anchor.id = anchorHash;
+    anchor.href = anchorHash;
     anchor.classList.add('heading-anchor');
     anchor.appendChild(heading.cloneNode(true));
     heading.parentNode.replaceChild(anchor, heading);
+
     anchor.addEventListener('click', (e) => {
       e.preventDefault();
-      history.pushState({}, '', anchor.href);
+      history.pushState({}, '', anchorHash);
       window.scrollTo(anchor.offsetLeft, anchor.offsetTop - header.offsetHeight - 10);
     });
+
+    if (window.location.hash === anchorHash) {
+      setTimeout(() => {
+        scrollTo(heading.offsetLeft, heading.offsetTop - header.offsetHeight - 10);
+      }, 100);
+    }
+
   });
 }
 

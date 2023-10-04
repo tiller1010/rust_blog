@@ -12,7 +12,8 @@ const fwProperties = {
   textColorDark: '#FFFFFF',
   primaryColor: '#353435',
   secondaryColor: '#4e4e4e',
-  componentTypographyProperties_HeadingMargin: '10px 0 10px 0',
+  elementH1Properties_margin: '10px 0 10px 0',
+  componentTypographyProperties_HeadingMargin: '50px 0 10px 0',
   elementPProperties_margin: '0 0 10px 0',
   layoutContainerWidth: '800px',
 }

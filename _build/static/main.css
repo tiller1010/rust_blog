@@ -185,7 +185,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 2rem;
 }
 
-pre {
+main pre {
   position: relative;
   background-color: var(--secondaryColor);
   border: 1px solid transparent;
