@@ -22,7 +22,7 @@ export const addAnchorsToHeadings = () => {
 
     if (window.location.hash === anchorHash) {
       setTimeout(() => {
-        scrollTo(heading.offsetLeft, heading.offsetTop - header.offsetHeight - 10);
+        window.scrollTo(anchor.offsetLeft, anchor.offsetTop - header.offsetHeight - 10);
       }, 100);
     }
 
