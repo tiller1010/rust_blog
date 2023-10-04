@@ -1,0 +1,14 @@
+{
+  "name": "blog_wasm",
+  "version": "0.1.0",
+  "files": [
+    "blog_wasm_bg.wasm",
+    "blog_wasm.js",
+    "blog_wasm.d.ts"
+  ],
+  "module": "blog_wasm.js",
+  "types": "blog_wasm.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
