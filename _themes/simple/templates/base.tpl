@@ -5,6 +5,7 @@
   <meta name="generator" content="mdblog.rs">
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,shrink-to-fit=no,user-scalable=0">
   {%- block title %}{% endblock title -%}
+  <link rel="icon" href="images/favicon.ico">
   <link rel="stylesheet" href="{{ config.site_url }}/static/main.css">
   {%- block css %}{% endblock css -%}
   <script src="static/bundle.js"></script>

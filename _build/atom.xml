@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id></id>
   <title>Tyler Trout's Blog</title>
-  <updated>2023-10-06T14:56:04-04:00</updated>
+  <updated>2023-10-06T16:46:58-04:00</updated>
   <subtitle>Full Stack Web Development</subtitle>
   <icon>/media/favicon.png</icon>
   <logo>/media/favicon.png</logo>
@@ -287,11 +287,10 @@ class HomePage extends Page
     <updated>2021-01-26T02:33:05+00:00</updated>
     <published>2021-01-26T02:33:05+00:00</published>
     <link href="/posts%5CTake_Your_Web_App_from_React_To_React_Native.html"/>
-    <summary>tags: [expo] # Take Your Web App from React To React Native Most of us Web Developers have never had the experience of building a mobile app. The task may seem daunting and out of the usual comfort zone. You might be starting with no Java or Swift experience. Learning both will take some time, and you would need to manage two codebases. Lucky for us, there is React Native and Expo. <img alt="" src="images/reactNative.png" height="228" width="456" />Create cross-platform mobile apps with React Native React Native lets us developers write mobile apps in React, no Java or Swift experience required....</summary>
+    <summary># Take Your Web App from React To React Native...</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
-        <p>tags: [expo]</p>
-<h1>Take Your Web App from React To React Native</h1>
+        <h1>Take Your Web App from React To React Native</h1>
 <p>Most of us Web Developers have never had the experience of building a mobile app. The task may seem daunting and out of the usual comfort zone. You might be starting with no Java or Swift experience. Learning both will take some time, and you would need to manage two codebases. Lucky for us, there is React Native and Expo.</p>
 <p><img alt="" src="images/reactNative.png" height="228" width="456" />Create cross-platform mobile apps with React Native</p>
 <p>React Native lets us developers write mobile apps in React, no Java or Swift experience required. Expo further simplifies the development process. It provides commonly used libraries. It sets up a development environment. It provides debugging tools and much more. With both of these tools, some React experience, and some wit, any web developer can develop their app for iPhone and Android. If you follow these steps, you too can transform your web-based React code into working React Native code.</p>
