@@ -10,6 +10,7 @@ export const addLinkEventListeners = () => {
       if (link.href.indexOf('mailto:') !== -1
         || link.href.indexOf('tel:') !== -1
         || link.href.indexOf('javascript:') !== -1
+        || link.href.indexOf('.xml') !== -1
         || new RegExp(`^${window.location.origin}`).test(link.href) === false
       ) {
         return;

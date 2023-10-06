@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id></id>
   <title>Tyler Trout's Blog</title>
-  <updated>2023-10-06T16:46:58-04:00</updated>
+  <updated>2023-10-06T17:10:16-04:00</updated>
   <subtitle>Full Stack Web Development</subtitle>
   <icon>/media/favicon.png</icon>
   <logo>/media/favicon.png</logo>
@@ -11,11 +11,11 @@
   <generator uri="https://github.com/FuGangqiang/mdblog.rs">mdblog.rs</generator>
   <entry>
     <id>/posts%5Crebuilding_my_blog.html</id>
-    <title>rebuilding my blog</title>
+    <title>rebuilding%20my%20blog</title>
     <updated>2023-10-03T08:36:50-04:00</updated>
     <published>2023-10-03T08:36:50-04:00</published>
     <link href="/posts%5Crebuilding_my_blog.html"/>
-    <summary># Rebuilding a WordPress blog with rust...</summary>
+    <summary>%23%20Rebuilding%20a%20WordPress%20blog%20with%20rust...</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
         <h1>Rebuilding a WordPress blog with rust</h1>
@@ -35,11 +35,11 @@
     </content>
   </entry><entry>
     <id>/posts%5CManage_multiple_versions_with_gitflow_and_GitHub.html</id>
-    <title>Manage multiple versions with gitflow and GitHub</title>
+    <title>Manage%20multiple%20versions%20with%20gitflow%20and%20GitHub</title>
     <updated>2022-09-04T21:46:01+00:00</updated>
     <published>2022-09-04T21:46:01+00:00</published>
     <link href="/posts%5CManage_multiple_versions_with_gitflow_and_GitHub.html"/>
-    <summary># Manage multiple versions with gitflow and GitHub...</summary>
+    <summary>%23%20Manage%20multiple%20versions%20with%20gitflow%20and%20GitHub...</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
         <h1>Manage multiple versions with gitflow and GitHub</h1>
@@ -239,11 +239,11 @@ jobs:
     </content>
   </entry><entry>
     <id>/posts%5CWrite_Reusable_PHP.html</id>
-    <title>Write Reusable PHP</title>
+    <title>Write%20Reusable%20PHP</title>
     <updated>2021-07-05T00:15:38+00:00</updated>
     <published>2021-07-05T00:15:38+00:00</published>
     <link href="/posts%5CWrite_Reusable_PHP.html"/>
-    <summary># Write Reusable PHP...</summary>
+    <summary>%23%20Write%20Reusable%20PHP...</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
         <h1>Write Reusable PHP</h1>
@@ -283,11 +283,11 @@ class HomePage extends Page
     </content>
   </entry><entry>
     <id>/posts%5CTake_Your_Web_App_from_React_To_React_Native.html</id>
-    <title>Take Your Web App from React To React Native</title>
+    <title>Take%20Your%20Web%20App%20from%20React%20To%20React%20Native</title>
     <updated>2021-01-26T02:33:05+00:00</updated>
     <published>2021-01-26T02:33:05+00:00</published>
     <link href="/posts%5CTake_Your_Web_App_from_React_To_React_Native.html"/>
-    <summary># Take Your Web App from React To React Native...</summary>
+    <summary>%23%20Take%20Your%20Web%20App%20from%20React%20To%20React%20Native...</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
         <h1>Take Your Web App from React To React Native</h1>
@@ -307,11 +307,11 @@ class HomePage extends Page
     </content>
   </entry><entry>
     <id>/posts%5CStop_Making_Site_Updates_Harder_For_Yourself_%26_Customers.html</id>
-    <title>Stop Making Site Updates Harder For Yourself & Customers</title>
+    <title>Stop%20Making%20Site%20Updates%20Harder%20For%20Yourself%20%26%20Customers</title>
     <updated>2020-09-15T00:41:41+00:00</updated>
     <published>2020-09-15T00:41:41+00:00</published>
     <link href="/posts%5CStop_Making_Site_Updates_Harder_For_Yourself_%26_Customers.html"/>
-    <summary># Stop Making Site Updates Harder For Yourself & Customers...</summary>
+    <summary>%23%20Stop%20Making%20Site%20Updates%20Harder%20For%20Yourself%20%26%20Customers...</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
         <h1>Stop Making Site Updates Harder For Yourself &amp; Customers</h1>
@@ -334,11 +334,11 @@ class HomePage extends Page
     </content>
   </entry><entry>
     <id>/posts%5CTools_I_took_for_granted.html</id>
-    <title>Tools I took for granted</title>
+    <title>Tools%20I%20took%20for%20granted</title>
     <updated>2020-03-08T17:30:08+00:00</updated>
     <published>2020-03-08T17:30:08+00:00</published>
     <link href="/posts%5CTools_I_took_for_granted.html"/>
-    <summary># Tools I took for granted...</summary>
+    <summary>%23%20Tools%20I%20took%20for%20granted...</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
         <h1>Tools I took for granted</h1>
@@ -356,11 +356,11 @@ class HomePage extends Page
     </content>
   </entry><entry>
     <id>/posts%5CBecoming_part_of_a_team.html</id>
-    <title>Becoming part of a team</title>
+    <title>Becoming%20part%20of%20a%20team</title>
     <updated>2019-09-14T13:22:52+00:00</updated>
     <published>2019-09-14T13:22:52+00:00</published>
     <link href="/posts%5CBecoming_part_of_a_team.html"/>
-    <summary># Becoming part of a team...</summary>
+    <summary>%23%20Becoming%20part%20of%20a%20team...</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
         <h1>Becoming part of a team</h1>
@@ -379,11 +379,11 @@ class HomePage extends Page
     </content>
   </entry><entry>
     <id>/posts%5CThe_End_of_My_Internship.html</id>
-    <title>The End of My Internship</title>
+    <title>The%20End%20of%20My%20Internship</title>
     <updated>2019-08-06T17:04:17+00:00</updated>
     <published>2019-08-06T17:04:17+00:00</published>
     <link href="/posts%5CThe_End_of_My_Internship.html"/>
-    <summary># The End of My Internship...</summary>
+    <summary>%23%20The%20End%20of%20My%20Internship...</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
         <h1>The End of My Internship</h1>
@@ -403,11 +403,11 @@ class HomePage extends Page
     </content>
   </entry><entry>
     <id>/posts%5CLinux_to_a_lifetime_Windows_User.html</id>
-    <title>Linux to a lifetime Windows User</title>
+    <title>Linux%20to%20a%20lifetime%20Windows%20User</title>
     <updated>2019-04-11T20:41:38+00:00</updated>
     <published>2019-04-11T20:41:38+00:00</published>
     <link href="/posts%5CLinux_to_a_lifetime_Windows_User.html"/>
-    <summary># Linux to a lifetime Windows User...</summary>
+    <summary>%23%20Linux%20to%20a%20lifetime%20Windows%20User...</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
         <h1>Linux to a lifetime Windows User</h1>
@@ -428,11 +428,11 @@ class HomePage extends Page
     </content>
   </entry><entry>
     <id>/posts%5CFixes_that_I_needed_a_user_to_find.html</id>
-    <title>Fixes that I needed a user to find</title>
+    <title>Fixes%20that%20I%20needed%20a%20user%20to%20find</title>
     <updated>2019-03-19T17:55:09+00:00</updated>
     <published>2019-03-19T17:55:09+00:00</published>
     <link href="/posts%5CFixes_that_I_needed_a_user_to_find.html"/>
-    <summary># Fixes that I needed a user to find...</summary>
+    <summary>%23%20Fixes%20that%20I%20needed%20a%20user%20to%20find...</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
         <h1>Fixes that I needed a user to find</h1>
