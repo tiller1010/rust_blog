@@ -12,7 +12,7 @@ I do not remember the first time that I heard about Linux, but the concept seeme
 
 Not until recently had I decided to give it a try. I first started with (like most people) Ubuntu. I installed Ubuntu, but soon switched to Mint, after doing more some more research. I really enjoyed Linux Mint as it was designed to feel very familiar to a Windows user.
 
-![](https://tylertroutblog.com/wp-content/uploads/2019/04/Logo_Linux_Mint.png)Mint Logo
+![](images/Logo_Linux_Mint.png)Mint Logo
 
 ## The terminal is not so scary
 
@@ -24,7 +24,7 @@ Although I had enjoyed Mint, I ran into problems with my Nvidia drivers, and the
 
 Pop! is my currently installed distribution, and I like it because it works almost right out of the box for games thanks to the elimination of that pesky driver problem mentioned earlier. Pop! is not so much geared towards mimicking Windows like Mint is, but it is very easy to understand. Almost anyone could easily get started with Pop! in minutes.
 
-![](https://tylertroutblog.com/wp-content/uploads/2019/04/pop.png)
+![](images/pop.png)
 
 Linux is as hard as you want it to be these days. I really think Linux is something that anyone can do, and it is well worth the effort to understand it. I personally am just getting started to learning Linux, and understand that there is a deep underbelly to Linux to explore, and some parts are pretty scary, I did try Arch on a virtual machine once.
 

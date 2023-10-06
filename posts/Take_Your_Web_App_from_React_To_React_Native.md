@@ -6,11 +6,11 @@ tags: [expo]
 
 Most of us Web Developers have never had the experience of building a mobile app. The task may seem daunting and out of the usual comfort zone. You might be starting with no Java or Swift experience. Learning both will take some time, and you would need to manage two codebases. Lucky for us, there is React Native and Expo.
 
-<img alt="" src="https://tylertroutblog.com/wp-content/uploads/2021/01/reactNative-1024x512.png" height="228" width="456" />Create cross-platform mobile apps with React Native
+<img alt="" src="images/reactNative.png" height="228" width="456" />Create cross-platform mobile apps with React Native
 
 React Native lets us developers write mobile apps in React, no Java or Swift experience required. Expo further simplifies the development process. It provides commonly used libraries. It sets up a development environment. It provides debugging tools and much more. With both of these tools, some React experience, and some wit, any web developer can develop their app for iPhone and Android. If you follow these steps, you too can transform your web-based React code into working React Native code.
 
-<img alt="" src="https://tylertroutblog.com/wp-content/uploads/2021/01/expo.png" height="201" width="411" />Simplify development. Spend less time getting set up and more time building your app.
+<img alt="" src="images/expo-logo.png" height="201" width="411" />Simplify development. Spend less time getting set up and more time building your app.
 
 ## Replace \<div\>s with \<View\>s
 
