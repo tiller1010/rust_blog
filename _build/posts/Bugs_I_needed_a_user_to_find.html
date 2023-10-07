@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="mdblog.rs">
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,shrink-to-fit=no,user-scalable=0">
-  <title>rebuilding my blog</title>
+  <title>Bugs I needed a user to find</title>
 <link rel="icon" href="images/favicon.ico">
   <link rel="stylesheet" href="/static/main.css"><script src="static/bundle.js"></script></head>
 <body>
@@ -31,24 +31,22 @@
 
 <main class="fw-container fw-typography-spacing">
     <article>
-      <p>tags: [rust]</p>
-<h1>Rebuilding a WordPress blog with rust</h1>
-<p>WordPress is a great platform to get started blogging with, but for me, it's more than what I really need. I don't need a database, I don't need a web server, and I don't need a CMS. At the end of the day, all I really need is static HTML, CSS, and JavaScript.</p>
-<h2>Save some money</h2>
-<p>Premium Web hosting with Hostinger costs about $90 a year. That's money I could be saving by switching to free hosting with GitHub Pages.</p>
-<h2>What about content management?</h2>
-<p>I'm a developer, so I'm comfortable with writing markdown. I decided to use a static site generator to convert my markdown files into HTML. I chose mdblog, a cargo crate I found on <a href="https://crates.io">crates.io</a>. This crate, however, had lacking support for Windows environments (still my daily driver), so I was required to fork it and make updates myself. This mostly involved adding checks for carriage returns in post files.</p>
-<h2>Importing posts</h2>
-<p>I had to write a script to convert my WordPress posts into markdown files. I exported my posts from WordPress as an XML file. Then I wrote a script to parse the XML file and convert the posts into markdown files. I used the crate &quot;html2md&quot; to convert the HTML content from my posts into the markdown format, after which the script outputs markdown files for each post. I then use those markdown files to generate HTML files from the mdblog templates. The journey of my posts starts at the HTML embedded in the WordPress XML export file, to markdown files, back to formatted HTML files.</p>
-<h2>Isn't that more work than necessary?</h2>
-<p>It is, but it doesn't come without benefits. I can now write my posts in markdown, and I can use git to track changes to my blog. My local text editor is a highly customized Neovim, which makes writing and editing posts much faster and more intuitive to me. This also comes with the added benefit of AI assisted writing, via GitHub Copilot.</p>
-<h2>Outcome</h2>
-<p>Overall, I'm happy with how the new blog turned out. I did, unfortunately, have to sacrifice some features, such as the ability to edit with the WordPress mobile app and the ability for users to leave comments, but I think the trade-off was worth it (most comments were spam anyway). My hosting is now free, I do not need to worry about spam comment, and editing the blog posts is now easier than ever.</p>
+      <p>tags: [css]</p>
+<h1>Bugs I needed a user to find</h1>
+<p>Using things more often makes them easier to use again. When I work on projects, I know what I want the project to be at the end. I know what it should look like and how I want to work. But then there are things that I do not think of. Recently, I have finished a list of changes that I would make to my portfolio and personal projects.</p>
+<p>I finished everything task list, and to me, I thought everything looked good. I started to show my portfolio to people I knew. I asked them what they thought and what they suggested. One person was having a hard time using the navigation, something that I did not expect to be a snag. I did not blame her, and decided to redo the navigation to make it easier.</p>
+<p>What I noticed first was that it was not obvious that any content existed further down the page. I thought of ways I could clue the user into scrolling down. I came up on the idea of a downwards pointing arrow that bobs and disappears after scrolling.</p>
+<p><img alt="" src="images/arrowDown.png" height="147" width="102" /><em>Canvas zigzag</em></p>
+<p>Next, I noticed that a heading looked like a button. I removed the underline from the text to prevent it from looking interactive.</p>
+<p><img src="images/books_read.png" alt="" /><em>Admittedly, this did look like any underlined link</em></p>
+<p>Finally, there was no indication of the current page, so I added an underline.</p>
+<p><img src="images/navbar.png" alt="" /><em>I did this by utilizing React State and inline styles</em></p>
+<p>My portfolio is much easier to navigate now with these simple changes. You can find my site at <a href="http://tylertrout.com">https://tylertrout.com</a></p>
 
     </article>
     <div id="article-footer"><div>
           <svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M512 192c179.2 0 320 140.8 320 320s-140.8 320-320 320-320-140.8-320-320S332.8 192 512 192M512 128C300.8 128 128 300.8 128 512s172.8 384 384 384 384-172.8 384-384S723.2 128 512 128L512 128z" p-id="1937" fill="#8a8a8a"></path><path d="M640 672c-6.4 0-19.2 0-25.6-6.4l-128-128C486.4 531.2 480 518.4 480 512L480 288C480 268.8 492.8 256 512 256s32 12.8 32 32l0 211.2 121.6 121.6c12.8 12.8 12.8 32 0 44.8C659.2 672 646.4 672 640 672z" p-id="1938"></path></svg>
-          2023-10-03 08:36:50
+          2019-03-19 17:55:09
         </div>
       </div>
 </main>

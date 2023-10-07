@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id></id>
   <title>Tyler Trout's Blog</title>
-  <updated>2023-10-06T17:10:16-04:00</updated>
+  <updated>2023-10-07T22:22:14-04:00</updated>
   <subtitle>Full Stack Web Development</subtitle>
   <icon>/media/favicon.png</icon>
   <logo>/media/favicon.png</logo>
@@ -15,10 +15,11 @@
     <updated>2023-10-03T08:36:50-04:00</updated>
     <published>2023-10-03T08:36:50-04:00</published>
     <link href="/posts%5Crebuilding_my_blog.html"/>
-    <summary>%23%20Rebuilding%20a%20WordPress%20blog%20with%20rust...</summary>
+    <summary>tags%3A%20%5Brust%5D%20%23%20Rebuilding%20a%20WordPress%20blog%20with%20rust%20WordPress%20is%20a%20great%20platform%20to%20get%20started%20blogging%20with%2C%20but%20for%20me%2C%20it%27s%20more%20than%20what%20I%20really%20need.%20I%20don%27t%20need%20a%20database%2C%20I%20don%27t%20need%20a%20web%20server%2C%20and%20I%20don%27t%20need%20a%20CMS.%20At%20the%20end%20of%20the%20day%2C%20all%20I%20really%20need%20is%20static%20HTML%2C%20CSS%2C%20and%20JavaScript.%20%23%23%20Save%20some%20money%20Premium%20Web%20hosting%20with%20Hostinger%20costs%20about%20%2490%20a%20year.%20That%27s%20money%20I%20could%20be%20saving%20by%20switching%20to%20free%20hosting%20with%20GitHub%20Pages.%20%23%23%20What%20about%20content%20management%3F%20I%27m%20a%20developer%2C%20so%20I%27m...</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
-        <h1>Rebuilding a WordPress blog with rust</h1>
+        <p>tags: [rust]</p>
+<h1>Rebuilding a WordPress blog with rust</h1>
 <p>WordPress is a great platform to get started blogging with, but for me, it's more than what I really need. I don't need a database, I don't need a web server, and I don't need a CMS. At the end of the day, all I really need is static HTML, CSS, and JavaScript.</p>
 <h2>Save some money</h2>
 <p>Premium Web hosting with Hostinger costs about $90 a year. That's money I could be saving by switching to free hosting with GitHub Pages.</p>
@@ -287,10 +288,11 @@ class HomePage extends Page
     <updated>2021-01-26T02:33:05+00:00</updated>
     <published>2021-01-26T02:33:05+00:00</published>
     <link href="/posts%5CTake_Your_Web_App_from_React_To_React_Native.html"/>
-    <summary>%23%20Take%20Your%20Web%20App%20from%20React%20To%20React%20Native...</summary>
+    <summary>tags%3A%20%5Bexpo%5D%20%23%20Take%20Your%20Web%20App%20from%20React%20To%20React%20Native%20Most%20of%20us%20Web%20Developers%20have%20never%20had%20the%20experience%20of%20building%20a%20mobile%20app.%20The%20task%20may%20seem%20daunting%20and%20out%20of%20the%20usual%20comfort%20zone.%20You%20might%20be%20starting%20with%20no%20Java%20or%20Swift%20experience.%20Learning%20both%20will%20take%20some%20time%2C%20and%20you%20would%20need%20to%20manage%20two%20codebases.%20Lucky%20for%20us%2C%20there%20is%20React%20Native%20and%20Expo.%20%3Cimg%20alt%3D%22%22%20src%3D%22images/reactNative.png%22%20height%3D%22228%22%20width%3D%22456%22%20/%3ECreate%20cross-platform%20mobile%20apps%20with%20React%20Native%20React%20Native%20lets%20us%20developers%20write%20mobile%20apps%20in%20React%2C%20no%20Java%20or%20Swift%20experience%20required....</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
-        <h1>Take Your Web App from React To React Native</h1>
+        <p>tags: [expo]</p>
+<h1>Take Your Web App from React To React Native</h1>
 <p>Most of us Web Developers have never had the experience of building a mobile app. The task may seem daunting and out of the usual comfort zone. You might be starting with no Java or Swift experience. Learning both will take some time, and you would need to manage two codebases. Lucky for us, there is React Native and Expo.</p>
 <p><img alt="" src="images/reactNative.png" height="228" width="456" />Create cross-platform mobile apps with React Native</p>
 <p>React Native lets us developers write mobile apps in React, no Java or Swift experience required. Expo further simplifies the development process. It provides commonly used libraries. It sets up a development environment. It provides debugging tools and much more. With both of these tools, some React experience, and some wit, any web developer can develop their app for iPhone and Android. If you follow these steps, you too can transform your web-based React code into working React Native code.</p>
@@ -311,10 +313,11 @@ class HomePage extends Page
     <updated>2020-09-15T00:41:41+00:00</updated>
     <published>2020-09-15T00:41:41+00:00</published>
     <link href="/posts%5CStop_Making_Site_Updates_Harder_For_Yourself_%26_Customers.html"/>
-    <summary>%23%20Stop%20Making%20Site%20Updates%20Harder%20For%20Yourself%20%26%20Customers...</summary>
+    <summary>tags%3A%20%5Bbusiness%5D%20%23%20Stop%20Making%20Site%20Updates%20Harder%20For%20Yourself%20%26%20Customers%20Imagine%20if%20every%20time%20you%20needed%20to%20start%20your%20car%2C%20you%20first%20had%20to%20install%20the%20engine.%20No%20one%20would%20ask%20to%20borrow%20your%20car%2C%20but%20you%20would%20be%20reluctant%20to%20use%20it%20yourself.%20No%20one%20wants%20a%20mundane%20task%20to%20take%20anymore%20time%20and%20effort%20than%20is%20required.%20Simple%20problems%20should%20have%20simple%20solutions%2C%20and%20updates%20to%20our%20websites%20should%20be%20painless.%20A%20site%20that%20works%20on%20one%20machine%2C%20should%20work%20on%20any%20machine.%20A%20site%20that%20needs%20a%20single%20change%20in%20punctuation%20on%20a%20single%20page%2C...</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
-        <h1>Stop Making Site Updates Harder For Yourself &amp; Customers</h1>
+        <p>tags: [business]</p>
+<h1>Stop Making Site Updates Harder For Yourself &amp; Customers</h1>
 <p>Imagine if every time you needed to start your car, you first had to install the engine. No one would ask to borrow your car, but you would be reluctant to use it yourself. No one wants a mundane task to take anymore time and effort than is required. Simple problems should have simple solutions, and updates to our websites should be painless. A site that works on one machine, should work on any machine. A site that needs a single change in punctuation on a single page, should not require a developer.</p>
 <h2>Use different environments</h2>
 <p>Development of a website often begins locally. The site is installed on the same computer the developer works with. When the site is finished, it is often staged in a development environment. The website is accessible from the internet, but it is not yet optimized for the public. When the site is ready to go live, it is installed again in a separate production environment. The site should function nearly identical in all three environments, but certain things should behave differently. In the case of an overlooked fatal error, we wouldn't want to show an end-user a long error trace; only the developer cares about that sort of thing. When entering payment information, we wouldn't want a real transaction to occur during development. Our site should behave differently in subtle ways, depending on our environment. Managing three different codebases for each environment would be highly inefficient and prone to errors. This is where environment variables come into play. With a single configuration file, we can control every setting that should differ in each instance of our site. The code should read the declared environment variables, and decide whether it should actually charge a debit card, or run a fake transaction in a test sandbox.</p>
@@ -360,10 +363,11 @@ class HomePage extends Page
     <updated>2019-09-14T13:22:52+00:00</updated>
     <published>2019-09-14T13:22:52+00:00</published>
     <link href="/posts%5CBecoming_part_of_a_team.html"/>
-    <summary>%23%20Becoming%20part%20of%20a%20team...</summary>
+    <summary>tags%3A%20%5Bgit%5D%20%23%20Becoming%20part%20of%20a%20team%20As%20of%20this%20writing%2C%20I%20am%20a%20few%20weeks%20into%20my%20first%20job%20as%20a%20junior%20web%20developer.%20I%20am%20thrilled%20to%20become%20part%20of%20an%20active%20development%20team.%20I%20had%20practiced%20and%20learned%20on%20my%20own%2C%20and%20now%20I%20must%20do%20so%20in%20a%20team.%20The%20first%20few%20days%20have%20taught%20me%20a%20few%20things%20about%20working%20in%20a%20business%20setting.%20I%20have%20learned%20that%20it%20is%20important%20to%20keep%20track%20of%20the%20time%20that%20I%20put%20into%20my%20tasks.%20I%20am%20becoming%20more%20familiar%20with%20the%20process%20of%20submitting%20pull...</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
-        <h1>Becoming part of a team</h1>
+        <p>tags: [git]</p>
+<h1>Becoming part of a team</h1>
 <p>As of this writing, I am a few weeks into my first job as a junior web developer. I am thrilled to become part of an active development team. I had practiced and learned on my own, and now I must do so in a team. The first few days have taught me a few things about working in a business setting. I have learned that it is important to keep track of the time that I put into my tasks. I am becoming more familiar with the process of submitting pull requests and receiving code reviews. I have learned to keep track of cards and organize my assignments with Trello.</p>
 <h2>Doing real work for the real world</h2>
 <p>When working on projects for real clients, it is important to be accurate and transparent with the cost of development. It also helps developers have a better estimate on the amount of time a feature will take to build. That is why it is important for me to track my times. I was introduced to a program called &quot;Minute7&quot;. It is a simple and handy tool for tracking time. I simply enter the client, the task, and the times I started and concluded working on a task. It is not overly complex, and it helps those on the business end accurately quote clients and make more informed decisions.</p>
@@ -383,21 +387,23 @@ class HomePage extends Page
     <updated>2019-08-06T17:04:17+00:00</updated>
     <published>2019-08-06T17:04:17+00:00</published>
     <link href="/posts%5CThe_End_of_My_Internship.html"/>
-    <summary>%23%20The%20End%20of%20My%20Internship...</summary>
+    <summary>tags%3A%20%5Bclients%5D%20%23%20The%20End%20of%20My%20Internship%20In%20May%20of%20this%20year%2C%20I%20got%20my%20first%20web%20development%20Internship.%20It%20has%20been%20a%20twelve%20week%20program%2C%20rebuilding%20site%20in%20the%20company%27s%20framework.%20During%20this%20time%2C%20I%20took%20time%20off%20from%20work%20so%20I%20could%20continue%20to%20my%20self-education%20in%20my%20spare%20time.%20This%20gave%20me%20much%20more%20flexibility%20to%20practice%20and%20learn.%20I%20was%20able%20to%20be%20especially%20productive%20with%20my%20time%20in%20the%20internship.%20I%20have%20practiced%20soft%20skills%20such%20as%20writing%20or%20fixing%20documentation%2C%20sharing%20ideas%2C%20and%20public%20speaking.%20%23%23%20New%20Framework%20A%20lot%20of%20my%20recent...</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
-        <h1>The End of My Internship</h1>
-<p>In May of this year, I got my first web development Internship. It has been a twelve week program at Werkbot Studios, right in downtown Erie. During this time, I took time off from work so I could continue to my self-education in my spare time. This gave me much more flexibility to practice and learn. I was able to be especially productive with my time Werkbot. I have practiced soft skills such as writing or fixing documentation, sharing ideas, and public speaking. Plus, I have even been able to take on some work of my own!</p>
+        <p>tags: [clients]</p>
+<h1>The End of My Internship</h1>
+<p>In May of this year, I got my first web development Internship. It has been a twelve week program, rebuilding site in the company's framework. During this time, I took time off from work so I could continue to my self-education in my spare time. This gave me much more flexibility to practice and learn. I was able to be especially productive with my time in the internship. I have practiced soft skills such as writing or fixing documentation, sharing ideas, and public speaking. </p>
 <h2>New Framework</h2>
-<p>A lot of my recent training has been focused on SilverStripe, which is a CMS that, on the surface, looks similar to WordPress. SilverStripe, however, is not just a CMS but also an MVC framework. It is not as simple as editing a theme and installing a few plugins. SilverStripe is largely based around having classes represent page types and having those classes provide fields for the CMS. Templates will then &quot;listen&quot; to the data entered in said fields. SilverStripe is centered around PHP, and despite criticism, I find PHP to be both powerful and readable. A majority of complaints come from the &quot;legacy PHP&quot; stigma that suggests the language is inconsistent with itself. It can be true in a sense, but just remember that most version differences can be found in the documentation. This remains true for SilverStripe, as most questions are answered by the project's contributors. Learning SilverStripe has taught me how to create dynamic websites with an easy to use CMS, and I am interested in using it for my own projects.</p>
+<p>A lot of my recent training has been focused on SilverStripe, a PHP CMS and framework. On the surface, SilverStripe seems similar to something like WordPress. SilverStripe, however, is not just a CMS but also an MVC framework, something like Laravel. It is not as simple as editing a theme and installing a few plugins. SilverStripe is largely based around having classes represent page types and having those classes provide fields for the CMS. Templates will then &quot;listen&quot; to the data entered in said fields.</p>
+<p>Learning SilverStripe has taught me how to create dynamic websites with an easy to use CMS, and I am interested in using it for my own projects.</p>
 <img alt="" src="images/silverstripe.png" height="145" width="412" />
 <h2>Software for working in teams</h2>
-<p>Alongside learning a framework/CMS, I have also been able to pick up on a few soft skills. During my internship, I have had one or more developers available to learn from and to review my code. Whenever I have questions, I can reach out to someone on Slack or leave a comment on a pull request. I have been told it is a good idea to be as descriptive as possible, so that other developers can understand my thought process. Doing so makes it easier to solve problems and helps to improve my communication. I also get to participate in both staff and developer meetings. Here, I get to share my ideas and recent progress, as well as watch how others communicate. The internship has helped me become more confidant when speaking in front of other people.</p>
+<p>Alongside learning a framework/CMS, I have also been able to pick up on a few soft skills. During my internship, I have had several developers available to learn from and to review my code. Whenever I have questions, I can reach out to someone on Slack or leave a comment on a pull request. I have been told it is a good idea to be as descriptive as possible, so that other developers can understand my thought process. Doing so makes it easier to solve problems and helps to improve my communication. I also get to participate in both staff and developer meetings. Here, I get to share my ideas and recent progress, as well as watch how others communicate. The internship has helped me become more confidant when speaking in front of other people.</p>
 <img alt="" src="images/slack.png" height="208" width="401" />
 <h2>How I landed this in the first place</h2>
-<p>In addition to the practice I get at Werkbot, I have also developed my communication skills outside of the office. I recently gave a talk at the Coderie Meetup group about my experiences. The idea was given to me by a member of Werkbot. Public speaking also helps improve my ability to talk to clients. I have had a few face to face meetings with small business owners who are looking for their own website. In these meetings, I have been able to showcase what I have been working on, as well as receive feedback to move forward with. Not everyone has met with me in person, though I have finished websites for both clients that I met online exclusively and for those I met in person.</p>
+<p>In addition to the practice I got at the internship, I have also developed my communication skills outside of the office. I recently gave a talk at the Coderie Meetup group about my experiences. The idea was given to me by a member of the company. Public speaking also helps improve my ability to talk to clients. I have had a few face to face meetings with small business owners who are looking for their own website. In these meetings, I have been able to showcase what I have been working on, as well as receive feedback to move forward with. Not everyone has met with me in person, though I have finished websites for both clients that I met online exclusively and for those I met in person.</p>
 <img alt="" src="images/coderie.png" height="78" width="332" />
-<p>During my internship at Werkbot, my skills as a developer have improved greatly. I am able to use SilverStripe to create dynamic websites. I practiced my communication with other developers, staff, and clients. Lastly, I took what I learned, and I applied it to my own work. With no school experience, I feel privileged to have had this opportunity, and it has been an awesome adventure.</p>
+<p>During my internship, my skills as a developer have improved greatly. I am able to use SilverStripe to create dynamic websites. I practiced my communication with other developers, staff, and clients. Lastly, I took what I learned, and I applied it to my own work. With no college education, I feel privileged to have had this opportunity, and I have benefited from it greatly.</p>
 
         ]]>
     </content>
@@ -407,42 +413,45 @@ class HomePage extends Page
     <updated>2019-04-11T20:41:38+00:00</updated>
     <published>2019-04-11T20:41:38+00:00</published>
     <link href="/posts%5CLinux_to_a_lifetime_Windows_User.html"/>
-    <summary>%23%20Linux%20to%20a%20lifetime%20Windows%20User...</summary>
+    <summary>tags%3A%20%5Blinux%5D%20%23%20Linux%20to%20a%20lifetime%20Windows%20User%20Microsoft%20Windows%20was%20the%20first%20operating%20system%20that%20I%20had%20ever%20used.%20My%20first%20computer%20was%20a%20hand-me-down%20Windows%20XP%20desktop%20from%20my%20parents.%20I%20had%20never%20had%20the%20chance%20to%20try%20an%20Apple%20computer%20until%20middle%20school.%20The%20school%20district%20there%20had%20used%20all%20Apple%20products.%20Not%20until%20graduating%20High%20School%20and%20teaching%20myself%20to%20code%20did%20I%20ever%20install%20my%20own%20Linux%20distro.%20%23%23%20What%20the%20heck%20is%20a%20Linux%20and%20who%20makes%20it%3F%20I%20do%20not%20remember%20the%20first%20time%20that%20I%20heard%20about%20Linux%2C%20but%20the%20concept...</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
-        <h1>Linux to a lifetime Windows User</h1>
-<p>Microsoft Windows was the first operating system that I had ever used. I was introduced to computers with a hand me down Windows XP desktop from my parents. I had never had the chance to try an Apple computer until middle school. I remember that I was bewildered by the fact that the mouse had no right click. Mac became usable to me once I understood the basics, but I had always preferred Windows.</p>
+        <p>tags: [linux]</p>
+<h1>Linux to a lifetime Windows User</h1>
+<p>Microsoft Windows was the first operating system that I had ever used. My first computer was a hand-me-down Windows XP desktop from my parents. I had never had the chance to try an Apple computer until middle school. The school district there had used all Apple products. Not until graduating High School and teaching myself to code did I ever install my own Linux distro.</p>
 <h2>What the heck is a Linux and who makes it?</h2>
-<p>I do not remember the first time that I heard about Linux, but the concept seemed very different from what I had expected about computers at the time. I did not understand how a free software that is not maintained by one company, but rather distributed and developed by hundreds, all with the something called &quot;open source&quot;, could all call themselves &quot;<em>Linux</em>&quot;.</p>
-<p>Not until recently had I decided to give it a try. I first started with (like most people) Ubuntu. I installed Ubuntu, but soon switched to Mint, after doing more some more research. I really enjoyed Linux Mint as it was designed to feel very familiar to a Windows user.</p>
+<p>I do not remember the first time that I heard about Linux, but the concept seemed very different from what I had expected about computers at the time. I did not understand how a free piece of software could be distributed. How can people work together to create something that is not maintained by one company, calling all the shots. How could something distributed and developed by hundreds of people work in an &quot;open source&quot; environment. And if there are more than one distribution, how could they all call themselves &quot;<em>Linux</em>&quot;.</p>
+<p>Not until recently had I decided to give it a try. I started first with Linux Mint, as it was designed to feel very familiar to a Windows user.</p>
 <p><img src="images/Logo_Linux_Mint.png" alt="" />Mint Logo</p>
 <h2>The terminal is not so scary</h2>
-<p>I was enjoyed Linux Mint for the time I used it. I am somewhat familiar with the command line interface from Windows, so the terminal felt right at home for me. Although it is true that Linux expects you to use the terminal, that really is not as scary as it sounds. It basically comes down to googling (or DuckDuckGo if you're like me) anything you need to do, and copying and pasting.</p>
-<p>Although I had enjoyed Mint, I ran into problems with my Nvidia drivers, and the whole thing became too much of a headache to worry about, so I decided to try out another distribution, Pop!_os, (or just Pop! for short).</p>
+<p>I was enjoyed Linux Mint for the time I used it. I am somewhat familiar with the command line interface from Windows, so the terminal felt right at home for me. It is true that Linux expects you to use the terminal. That sounds scary, but it is not as bad as it sounds. It started for me as using Google or DuckDuckGo to find anything I needed to do. Then simply copying and pasting.</p>
+<p>After getting the hang of it, the terminal becomes a very helpful and intuitive tool. Creating files, editing text, and running programs in the command line should feel right at home for developers.</p>
 <h2>Distro Hopping</h2>
+<p>Although I had enjoyed Mint, I ran into problems with my Nvidia drivers, and the whole thing became too much of a headache to worry about, so I decided to try out another distribution, Pop!_os, (or just Pop! for short).</p>
 <p>Pop! is my currently installed distribution, and I like it because it works almost right out of the box for games thanks to the elimination of that pesky driver problem mentioned earlier. Pop! is not so much geared towards mimicking Windows like Mint is, but it is very easy to understand. Almost anyone could easily get started with Pop! in minutes.</p>
 <p><img src="images/pop.png" alt="" /></p>
-<p>Linux is as hard as you want it to be these days. I really think Linux is something that anyone can do, and it is well worth the effort to understand it. I personally am just getting started to learning Linux, and understand that there is a deep underbelly to Linux to explore, and some parts are pretty scary, I did try Arch on a virtual machine once.</p>
+<p>Linux is as hard as you want it to be these days. I really think Linux is something that anyone can do, and it is well worth the effort to understand it. I personally am just getting started to learning Linux, and understand that there is a deep underbelly to Linux to explore, and some parts are pretty scary to beginners. Linux is really is as hard as you want it to be.</p>
 
         ]]>
     </content>
   </entry><entry>
-    <id>/posts%5CFixes_that_I_needed_a_user_to_find.html</id>
-    <title>Fixes%20that%20I%20needed%20a%20user%20to%20find</title>
+    <id>/posts%5CBugs_I_needed_a_user_to_find.html</id>
+    <title>Bugs%20I%20needed%20a%20user%20to%20find</title>
     <updated>2019-03-19T17:55:09+00:00</updated>
     <published>2019-03-19T17:55:09+00:00</published>
-    <link href="/posts%5CFixes_that_I_needed_a_user_to_find.html"/>
-    <summary>%23%20Fixes%20that%20I%20needed%20a%20user%20to%20find...</summary>
+    <link href="/posts%5CBugs_I_needed_a_user_to_find.html"/>
+    <summary>tags%3A%20%5Bcss%5D%20%23%20Bugs%20I%20needed%20a%20user%20to%20find%20Using%20things%20more%20often%20makes%20them%20easier%20to%20use%20again.%20When%20I%20work%20on%20projects%2C%20I%20know%20what%20I%20want%20the%20project%20to%20be%20at%20the%20end.%20I%20know%20what%20it%20should%20look%20like%20and%20how%20I%20want%20to%20work.%20But%20then%20there%20are%20things%20that%20I%20do%20not%20think%20of.%20Recently%2C%20I%20have%20finished%20a%20list%20of%20changes%20that%20I%20would%20make%20to%20my%20portfolio%20and%20personal%20projects.%20I%20finished%20everything%20task%20list%2C%20and%20to%20me%2C%20I%20thought%20everything%20looked%20good.%20I%20started%20to%20show%20my%20portfolio%20to%20people...</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
-        <h1>Fixes that I needed a user to find</h1>
-<p>It's easier for someone to use something if they have become familiar with it. When I work on projects, I know what I want it to look like, and how it works. Recently, I have finished a list of changes that I would make to my portfolio and personal projects.</p>
-<p>I finished everything on my current list and thought everything looked good, so I started showing all of my close family members and coworkers what they thought. One person in particular was having a hard time using my portfolio site, and I had to explain how to simply navigate it. I did not blame her, but I knew that I could fix just a few things to make navigating easier.</p>
-<p>I noticed first, that my user did not even think to scroll down the page after the first paragraph. I thought of ways I could clue the user into scrolling down. I came up on the idea of a downwards pointing arrow that bobs and disappears after scrolling.</p>
+        <p>tags: [css]</p>
+<h1>Bugs I needed a user to find</h1>
+<p>Using things more often makes them easier to use again. When I work on projects, I know what I want the project to be at the end. I know what it should look like and how I want to work. But then there are things that I do not think of. Recently, I have finished a list of changes that I would make to my portfolio and personal projects.</p>
+<p>I finished everything task list, and to me, I thought everything looked good. I started to show my portfolio to people I knew. I asked them what they thought and what they suggested. One person was having a hard time using the navigation, something that I did not expect to be a snag. I did not blame her, and decided to redo the navigation to make it easier.</p>
+<p>What I noticed first was that it was not obvious that any content existed further down the page. I thought of ways I could clue the user into scrolling down. I came up on the idea of a downwards pointing arrow that bobs and disappears after scrolling.</p>
 <p><img alt="" src="images/arrowDown.png" height="147" width="102" /><em>Canvas zigzag</em></p>
-<p>Next, I noticed that my user was trying to click on a heading label. I removed the underline from the text and made the font the same as all other headings.</p>
+<p>Next, I noticed that a heading looked like a button. I removed the underline from the text to prevent it from looking interactive.</p>
 <p><img src="images/books_read.png" alt="" /><em>Admittedly, this did look like any underlined link</em></p>
-<p>Finally, my user had no indication of the current page she was on, so she clicked on her current tab a few times before realizing what she was doing. I knew that I needed to update my navbar styles and give an indication of the current page.</p>
+<p>Finally, there was no indication of the current page, so I added an underline.</p>
 <p><img src="images/navbar.png" alt="" /><em>I did this by utilizing React State and inline styles</em></p>
 <p>My portfolio is much easier to navigate now with these simple changes. You can find my site at <a href="http://tylertrout.com">https://tylertrout.com</a></p>
 
