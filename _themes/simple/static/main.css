@@ -154,6 +154,15 @@ main a sup {
     border-radius: 0px;
     box-sizing: border-box;
   }
+
+  .fw-typography-spacing h1 {
+    font-size: 1.9rem;
+  }
+
+  .fw-typography-spacing h2 {
+    font-size: 1.3rem;
+  }
+
 }
 
 /* Custom Stuff Is Mostly Down Here */
