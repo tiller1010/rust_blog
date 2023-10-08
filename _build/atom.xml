@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id></id>
   <title>Tyler Trout's Blog</title>
-  <updated>2023-10-07T22:22:14-04:00</updated>
+  <updated>2023-10-08T13:27:17-04:00</updated>
   <subtitle>Full Stack Web Development</subtitle>
   <icon>/media/favicon.png</icon>
   <logo>/media/favicon.png</logo>
@@ -11,15 +11,14 @@
   <generator uri="https://github.com/FuGangqiang/mdblog.rs">mdblog.rs</generator>
   <entry>
     <id>/posts%5Crebuilding_my_blog.html</id>
-    <title>rebuilding%20my%20blog</title>
+    <title>rebuilding my blog</title>
     <updated>2023-10-03T08:36:50-04:00</updated>
     <published>2023-10-03T08:36:50-04:00</published>
     <link href="/posts%5Crebuilding_my_blog.html"/>
-    <summary>tags%3A%20%5Brust%5D%20%23%20Rebuilding%20a%20WordPress%20blog%20with%20rust%20WordPress%20is%20a%20great%20platform%20to%20get%20started%20blogging%20with%2C%20but%20for%20me%2C%20it%27s%20more%20than%20what%20I%20really%20need.%20I%20don%27t%20need%20a%20database%2C%20I%20don%27t%20need%20a%20web%20server%2C%20and%20I%20don%27t%20need%20a%20CMS.%20At%20the%20end%20of%20the%20day%2C%20all%20I%20really%20need%20is%20static%20HTML%2C%20CSS%2C%20and%20JavaScript.%20%23%23%20Save%20some%20money%20Premium%20Web%20hosting%20with%20Hostinger%20costs%20about%20%2490%20a%20year.%20That%27s%20money%20I%20could%20be%20saving%20by%20switching%20to%20free%20hosting%20with%20GitHub%20Pages.%20%23%23%20What%20about%20content%20management%3F%20I%27m%20a%20developer%2C%20so%20I%27m...</summary>
+    <summary># Rebuilding a WordPress blog with rust...</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
-        <p>tags: [rust]</p>
-<h1>Rebuilding a WordPress blog with rust</h1>
+        <h1>Rebuilding a WordPress blog with rust</h1>
 <p>WordPress is a great platform to get started blogging with, but for me, it's more than what I really need. I don't need a database, I don't need a web server, and I don't need a CMS. At the end of the day, all I really need is static HTML, CSS, and JavaScript.</p>
 <h2>Save some money</h2>
 <p>Premium Web hosting with Hostinger costs about $90 a year. That's money I could be saving by switching to free hosting with GitHub Pages.</p>
@@ -36,15 +35,16 @@
     </content>
   </entry><entry>
     <id>/posts%5CManage_multiple_versions_with_gitflow_and_GitHub.html</id>
-    <title>Manage%20multiple%20versions%20with%20gitflow%20and%20GitHub</title>
+    <title>Manage multiple versions with gitflow and GitHub</title>
     <updated>2022-09-04T21:46:01+00:00</updated>
     <published>2022-09-04T21:46:01+00:00</published>
     <link href="/posts%5CManage_multiple_versions_with_gitflow_and_GitHub.html"/>
-    <summary>%23%20Manage%20multiple%20versions%20with%20gitflow%20and%20GitHub...</summary>
+    <summary># Manage multiple versions with GitFlow and GitHub...</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
-        <h1>Manage multiple versions with gitflow and GitHub</h1>
-<p>Imagine this: you want to add a new feature to a repository, but it involves a change that will break backward compatibility. You could release a new major version, but other repositories may depend on the previous version of your software. In this case, you need to support an older version simultaneously with the next major version. Git-flow is a branching strategy that eases the burden of managing multiple versions, but it can be tricky to implement in a team using GitHub. Git-flow provides several benefits:</p>
+        <h1>Manage multiple versions with GitFlow and GitHub</h1>
+<p>Imagine this: you want to add a new feature to a repository, but it involves a change that will break backward compatibility. You could release a new major version, but other repositories may depend on the previous version of your software.</p>
+<p>In this case, you need to support an older version simultaneously with the next major version. Git-flow is a branching strategy that eases the burden of managing multiple versions, but it can be tricky to implement in a team using GitHub. Git-flow provides several benefits:</p>
 <ul>
 <li>Git-flow uses distinct and obvious branch roles: branches are annotated with their specific purpose (feature, release, support, and hotfix).</li>
 <li>Git-flow keeps consistent histories: patches made for older versions are automatically merged back into the development branch.</li>
@@ -53,67 +53,102 @@
 <p>These benefits can be achieved in a GitHub setting, but it requires some manual automation with GitHub actions.</p>
 <h2>&quot;feature/feature_name&quot; into &quot;develop&quot;</h2>
 <p>All new features should be created from the &quot;develop&quot; branch. No GitHub actions need to run on pull requests created for feature branches into the develop branch, but you may choose to enforce labels on your features. Making sure the feature in review has the appropriate semantic versioning label will be helpful for when we create &quot;release&quot; branches later.</p>
+<p>When a pull request is finished for a feature branch, the PR can be squashed and merged into the &quot;develop&quot; branch. Squashing should <strong>not</strong> occur for release or hotfix PRs for reasons that will be mentioned.</p>
 <h2>Draft a release on &quot;release/*&quot; push</h2>
 <p>By far the best benefit of using git-flow with GitHub is that releases can be properly reviewed in the form of a pull request. A GitHub action could be created that drafts a release when a push is made to a &quot;release/*&quot; branch.</p>
 <pre><code>on:
   push:
     branches:
-      - release/*
+      - release/**
+      - hotfix/**
 
 permissions:
   contents: read
 
 jobs:
   update_release_draft:
-    permissions:
-      contents: write
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@master
+        with:
+          fetch-depth: 0
+
+      # NEW RELEASES
+      # Check if this is a release branch
+      - name: Check For release branch
+        id: is_release_branch
+        continue-on-error: true
+        run: |
+          FILTEREDBRANCHNAME=$(git branch | grep &quot;\* release&quot;)
+          echo &quot;filtered_branch_name=$FILTEREDBRANCHNAME&quot; &gt;&gt; $GITHUB_OUTPUT
 
       # Get the release tag
       - name: Get release Tag
         id: get_release_tag
+        if: steps.is_release_branch.outputs.filtered_branch_name != ''
         run: |
-          RELEASETAG=$(git branch | grep \* | sed -re &quot;s/release\///;s/\*//;s/\s*//g&quot;)
-          echo &quot;::set-output name=release_tag::$RELEASETAG&quot;
+          RELEASETAG=$(git branch | grep \* | sed -re &quot;s/(\* )?release\///;s/(\w+)\/.*/\1/g&quot;)
+          echo &quot;release_tag=$RELEASETAG&quot; &gt;&gt; $GITHUB_OUTPUT
 
       # Draft Release with release branch
       - name: Draft Release with release branch
         id: update_release_draft_with_release_branch
-        uses: release-drafter/release-drafter@master
+        if: steps.is_release_branch.outputs.filtered_branch_name != ''
+        uses: tiller1010/release-drafter@master
         with:
           tag: ${{ steps.get_release_tag.outputs.release_tag }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 </code></pre>
 <h2>Publish the draft release when &quot;release/*&quot; PRs are merged</h2>
-<p>When a release branch is merged into &quot;main&quot; the release that was drafted for that pull request can be published. Doing so creates a tag. After the corresponding release is published, the &quot;release/*&quot; branch can be automatically deleted by a GitHub action.</p>
+<p>Before merging a release PR, the changes should be reviewed again by another developer. If any additional commits are made, these should <strong>not</strong> be squashed before merging. This way, the other branches are aware of the additional commits, and merges can occur more smoothly, bringing the fixes along too.</p>
+<p>When a release branch is merged into &quot;main&quot; the release that was drafted for that pull request can be published. Doing so creates a tag. After the corresponding release is published, a changelog PR is automatically created, approved, and merged. Them, the &quot;release/*&quot; branch can be automatically deleted by a GitHub action.</p>
 <pre><code>on:
   pull_request:
     types:
       - closed
     branches:
       - main
+      - support/*
 
 jobs:
   publish_release:
     if: ${{ github.event.pull_request.merged }}
     runs-on: ubuntu-latest
     steps:
-      # Get the latest draft release. This requires authentication.
+
+      - name: Checkout
+        uses: actions/checkout@master
+        with:
+          fetch-depth: 0
+
+      - name: Get repository name
+        id: repo-name
+        uses: tiller1010/get-repo-name-action@master
+        with:
+          with-owner: 'true'
+
       - name: Get release id
         id: get_release_id
         run: |
-          TOKEN=${{ secrets.GITHUB_TOKEN }}
-          RELEASEID=$(curl -H &quot;Accept: application/vnd.github+json&quot; -H &quot;Authorization: token $TOKEN&quot; https://api.github.com/repos/[YOURNAME]/[REPONAME]/releases)
+          TOKEN=&quot;${{ secrets.GITHUB_TOKEN }}&quot;
+          REPO=&quot;${{ steps.repo-name.outputs.repository-name }}&quot;
+          RELEASEID=$(curl -H &quot;Accept: application/vnd.github+json&quot; -H &quot;Authorization: token $TOKEN&quot; https://api.github.com/repos/$REPO/releases)
           RELEASEID=$(echo &quot;$RELEASEID&quot; | grep \&quot;id\&quot;  | head -n 1 | sed -re &quot;s/[a-z]*//g;s/[-|,|:|'\&quot;]//g;s/\s//g&quot;)
-          echo &quot;::set-output name=release_id::$RELEASEID&quot;
+          echo &quot;release_id=$RELEASEID&quot; &gt;&gt; $GITHUB_OUTPUT
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # Publish the release draft
+      - name: Payload info
+        id: payload_info
+        uses: tiller1010/payload-info-action@master
+        continue-on-error: true
+
+      # START HOTFIX RELEASE RE-DRAFT
+      # END HOTFIX RELEASE RE-DRAFT
+
       - name: Publish release
         uses: eregon/publish-release@v1
         env:
@@ -121,37 +156,88 @@ jobs:
         with:
           release_id: ${{ steps.get_release_id.outputs.release_id }}
 
-      # Get payload info from the pull request
-      - name: Payload info
-        id: payload_info
-        uses: Dovyski/payload-info-action@master
+
+      # START CHANGELOG PORTION
+      - name: Check if releasing for a support branch
+        id: is_support_branch
         continue-on-error: true
+        run: |
+          FILTEREDBRANCHNAME=$(git branch | grep &quot;\* support&quot;)
+          echo &quot;filtered_branch_name=$FILTEREDBRANCHNAME&quot; &gt;&gt; $GITHUB_OUTPUT
+
+      - name: Generate Changelog
+        id: changelog
+        if: steps.is_support_branch.outputs.filtered_branch_name == ''
+        uses: tiller1010/tag-changelog@main
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          exclude_types: other,doc,chore
+          config_file: .github/tag-changelog-config.js
+
+      - name: Output Changelog
+        id: output_changelog
+        if: steps.is_support_branch.outputs.filtered_branch_name == ''
+        run: TAGCONTENT=&quot;${{ steps.changelog.outputs.changelog }}&quot;;CHANGELOG=$(cat CHANGELOG.md);CHANGELOG=$(echo &quot;$CHANGELOG&quot; | sed -e &quot;s/# Changelog//&quot;);echo -e &quot;# Changelog\n\n$TAGCONTENT$CHANGELOG&quot; &gt; CHANGELOG.md
+
+      - name: Create Pull Request
+        id: create_pr
+        if: steps.is_support_branch.outputs.filtered_branch_name == ''
+        uses: peter-evans/create-pull-request@v4
+        with:
+          title: Auto-Update CHANGELOG.md
+          commit-message: Updated CHANGELOG.md
+          labels: automerge
+
+      - name: Approve PR
+        if: steps.is_support_branch.outputs.filtered_branch_name == ''
+        uses: hmarr/auto-approve-action@v3
+        with:
+          review-message: Auto approved automated PR
+          pull-request-number: ${{ steps.create_pr.outputs.pull-request-number }}
+          github-token: ${{ secrets.SOME_USERS_PAT }}
+
+      - name: Auto merge
+        if: steps.is_support_branch.outputs.filtered_branch_name == ''
+        uses: pascalgn/automerge-action@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PULL_REQUEST: ${{ steps.create_pr.outputs.pull-request-number }}
+          MERGE_DELETE_BRANCH: true
+
+      - name: Post Changelog Checkout
+        if: steps.is_support_branch.outputs.filtered_branch_name == ''
+        uses: actions/checkout@master
+        with:
+          ref: main
+      # END CHANGELOG PORTION
+
+      # START MERGE INTO DEVELOP
+      # END MERGE INTO DEVELOP
 
       # Remove the release or hotfix branch after publishing
       - name: Remove PR branch
         uses: dawidd6/action-delete-branch@v3
         with:
-          github_token: ${{github.token}}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           branches: ${{ steps.payload_info.outputs.branch }}
 </code></pre>
 <h2>Merge main into develop</h2>
-<p>After a release branch is merged into the main branch, it should be merged back into the &quot;develop&quot; branch. Optionally, you could set GitHub actions to create a commit that updates a CHANGELOG.md file before this merge occurs.</p>
-<pre><code>on:
-  push:
-    branches:
-      - main
+<p>After a release branch is merged into the main branch, it should be merged back into the &quot;develop&quot; branch.</p>
+<pre><code>...
+      # START MERGE INTO DEVELOP
+      # Merge support changes into develop so they can be included in the next release
+      - name: Merge support -&gt; develop
+        if: steps.is_support_branch.outputs.filtered_branch_name != ''
+        uses: devmasx/merge-branch@master
+        with:
+          type: now
+          target_branch: develop
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          message: Merged support into develop
 
-permissions:
-  contents: write
-
-jobs:
-  sync_develop:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@master
-
+      # Merge main changes into develop
       - name: Merge main -&gt; develop
+        if: steps.is_support_branch.outputs.filtered_branch_name == ''
         uses: devmasx/merge-branch@master
         with:
           type: now
@@ -159,98 +245,80 @@ jobs:
           target_branch: develop
           github_token: ${{ secrets.GITHUB_TOKEN }}
           message: Merged main into develop
+      # END MERGE INTO DEVELOP
+...
 </code></pre>
-<h2>Draft releases on &quot;hotfix/*&quot; push</h2>
-<p>When you must support a previous minor or major version, you should start by checking out that tag. Make sure to checkout the latest patch for that minor or major version. Then, you should create a &quot;support/*.x&quot; branch. Support branches should function similarly to the &quot;main&quot; branch. Tags will be created when &quot;hotfix/*&quot; branches are merged into it, and commits should <strong>not</strong> be added to it directly. After creating the support branch, a &quot;hotfix/*&quot; branch with the next patch number should be created. These are similar to the &quot;release/*&quot; branches, as they should be reviewed in a pull request, and when they are merged, Git actions should <strong>publish</strong> the drafted release and delete the &quot;hotfix/*&quot; branch (similar to when a &quot;release/*&quot; branch is merged, see the above example).</p>
-<pre><code>on:
-  push:
-    branches:
-      - hotfix/*
-
-jobs:
-  update_release_draft:
-    permissions:
-      contents: write
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@master
-
-      # Get the hotfix tag
-      - name: Get hotfix Tag
-        id: get_hotfix_tag
+<h2>Re-Draft releases on &quot;hotfix/*&quot; push</h2>
+<p>When you must support a previous minor or major version, you should start by checking out that tag. Make sure to checkout the latest patch for that minor or major version. Then, you should create a &quot;support/*.x&quot; branch.</p>
+<p>Support branches should function similarly to the &quot;main&quot; branch. Tags will be created when &quot;hotfix/*&quot; branches are merged into it, and commits should <strong>not</strong> be added to it directly.</p>
+<p>After creating the support branch, a &quot;hotfix/*&quot; branch with the next patch number should be created. These are similar to the &quot;release/*&quot; branches, as they should be reviewed in a pull request, and when they are merged.</p>
+<p>Again, <strong>do not</strong> squash commits for hotfix branches before merging. That way, when support branch commits are merged back into the develop and main branches, the same commit SHAs appear, and the changes are shown as merged.</p>
+<p>Git actions should <strong>publish</strong> the drafted release and delete the &quot;hotfix/*&quot; branch (similar to when a &quot;release/*&quot; branch is merged, see the above example).</p>
+<pre><code>...
+      # START HOTFIX RELEASE RE-DRAFT
+      - name: Check if releasing a hotfix
+        id: is_hotfix_branch
+        continue-on-error: true
         run: |
-          RELEASETAG=$(git branch | grep \* | sed -re &quot;s/hotfix\///;s/\*//;s/\s*//g&quot;)
-          echo &quot;::set-output name=release_tag::$RELEASETAG&quot;
+          PRBRANCH=&quot;${{ steps.payload_info.outputs.branch }}&quot;
+          FILTEREDBRANCHNAME=$(echo &quot;$PRBRANCH&quot; | grep &quot;hotfix&quot;)
+          echo &quot;filtered_pr_branch_name=$FILTEREDBRANCHNAME&quot; &gt;&gt; $GITHUB_OUTPUT
 
-      # Draft Release with hotfix branch
-      - name: Draft Release with hotfix branch
+      - name: Get hotfix Tag from branch name
+        id: get_hotfix_tag
+        if: steps.is_hotfix_branch.outputs.filtered_pr_branch_name != ''
+        run: |
+          HOTFIXBRANCH=&quot;${{ steps.payload_info.outputs.branch }}&quot;
+          RELEASETAG=$(echo &quot;$HOTFIXBRANCH&quot; | sed -re &quot;s/(\* )?hotfix\///;s/(\w+)\/.*/\1/g&quot;)
+          echo &quot;release_tag=$RELEASETAG&quot; &gt;&gt; $GITHUB_OUTPUT
+
+      - name: Get Last Tag created on this branch
+        id: last_tag
+        if: steps.is_hotfix_branch.outputs.filtered_pr_branch_name != ''
+        run: |
+          LASTTAG=$(git describe --tags | sed -re &quot;s/-.+//&quot;)
+          echo &quot;last_tag_on_branch=$LASTTAG&quot; &gt;&gt; $GITHUB_OUTPUT
+
+      # Re-Draft Release with hotfix tag
+      # &quot;release-drafter&quot; works by checking the changes of merged pull requests.
+      # For support or main branch hotfixes, there is only one merged hotfix PR, which is only now available,
+      # so we need to re-draft the release with the recently merged PR for release notes.
+      - name: Draft Release with hotfix tag
         id: update_release_draft_with_hotfix_branch
-        uses: release-drafter/release-drafter@master
+        if: steps.is_hotfix_branch.outputs.filtered_pr_branch_name != ''
+        uses: tiller1010/release-drafter@master
         with:
           tag: ${{ steps.get_hotfix_tag.outputs.release_tag }}
+          last_tag: ${{ steps.last_tag.outputs.last_tag_on_branch }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # END HOTFIX RELEASE RE-DRAFT
+...
 </code></pre>
 <h2>Merge support into main and develop</h2>
-<p>If a bug existed in a previous version, it is likely that it still exists in the latest version too. Similar to &quot;release/*&quot; branches that are merged into the main branch, support branches too should be merged into the main branch and then merged again into the develop branch when a &quot;hotfix/*&quot; branch is merged into one. There is, however, a higher potential for this merge to conflict with the main branch. In that case, a developer must resolve the conflict on their own, and push the resolved merge into the main branch.</p>
-<pre><code>on:
-  push:
-    branches:
-      - support/*
-
-permissions:
-  contents: write
-
-jobs:
-  sync_develop:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@master
-
-      # Get the support branch
-      - name: Get support branch
-        id: get_support_branch
-        run: |
-          SUPPORTBRANCH=$(git branch | grep \* | sed -re &quot;s/[\*|\ ]//g&quot;)
-          echo &quot;::set-output name=support_branch::$SUPPORTBRANCH&quot;
-
-      - name: Merge support -&gt; main
-        uses: devmasx/merge-branch@master
-        with:
-          type: now
-          from_branch: ${{ steps.get_support_branch.outputs.support_branch }}
-          target_branch: main
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          message: Merged ${{ steps.get_support_branch.outputs.support_branch }} into main
-
-      - name: Merge main -&gt; develop
-        uses: devmasx/merge-branch@master
-        with:
-          type: now
-          from_branch: main
-          target_branch: develop
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          message: Merged main into develop
-</code></pre>
+<p>If a bug existed in a previous version, it is likely that it still exists in the latest version too. Similar to &quot;release/*&quot; branches that are merged into the main branch, support branches too should be merged into the main branch.</p>
+<p>This happens by first creating a feature PR to merge a cloned support branch into the develop branch. There is, however, a higher potential for this to produce merge conflicts. In that case, a developer must resolve the conflict on their own, and push the resolved merge into the feature branch, set to merge into develop.</p>
+<p>Now that the support branch is merged into develop, it can be merged into the main branch. This should be done in another release pull request.</p>
 <p>I hope you decide to use git-flow in your projects! It adds much-needed sanity to the management of multiple versions of software.</p>
 
         ]]>
     </content>
   </entry><entry>
     <id>/posts%5CWrite_Reusable_PHP.html</id>
-    <title>Write%20Reusable%20PHP</title>
+    <title>Write Reusable PHP</title>
     <updated>2021-07-05T00:15:38+00:00</updated>
     <published>2021-07-05T00:15:38+00:00</published>
     <link href="/posts%5CWrite_Reusable_PHP.html"/>
-    <summary>%23%20Write%20Reusable%20PHP...</summary>
+    <summary># Write Reusable PHP...</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
         <h1>Write Reusable PHP</h1>
-<p>Have you ever found yourself writing code with a sense Déjà vu? You feel as though the code you are writing has already been written somewhere else. This could potentially be within the same project or even the same file. You do not want to be stuck repeating yourself and you do not want to waste time finding answers to the problems you have already solved. You might already be familiar with the &quot;DRY&quot; principle (Don't Repeat Yourself). Repeating code not only makes your project look sloppy and difficult to read (and therefore manage); it increases the likelihood of bugs and makes the code more difficult to manage. Here are a few helpful tips for producing PHP code that you can use often, but write only once.</p>
+<p>Have you ever found yourself writing code with a sense Déjà vu? You feel as though the code you are writing has already been written somewhere else. This could potentially be within the same project or even the same file.</p>
+<p>You do not want to be stuck repeating yourself and you do not want to waste time finding answers to the problems you have already solved. You might already be familiar with the &quot;DRY&quot; principle (Don't Repeat Yourself). Repeating code not only makes your project look sloppy and difficult to read (and therefore manage); it increases the likelihood of bugs, and it makes the code more difficult to manage. Here are a few helpful tips for producing PHP code that you can use often, but write only once.</p>
 <h2>Use Modules</h2>
-<p>Modules are reusable packages that can be included across several of your projects. Modules isolate the functionality of one of your project's features, allowing you to maintain these features separately from your projects. You might have several PHP-powered websites, most of which connect to social media platforms. Therefore, you might create a module just for managing your social media accounts. Such a module should not be overly concerned with the particular project it is included in but instead should only care about storing data related to social media sites. Perhaps the module would also provide some sort of front-end component to render this data such as icon links to each social network site. If an update were to be added to support some new feature (perhaps a selectable list of icons), then the update would be made to the module itself and not the websites. Any site that uses this module could receive the update by <a href="https://getcomposer.org/">running composer</a>.</p>
+<p>Modules are reusable packages that can be included across several of your projects. Modules isolate the functionality of one of your project's features, allowing you to maintain these features separately from your projects.</p>
+<p>You might have several PHP-powered websites, most of which connect to social media platforms. Therefore, you might create a module just for managing your social media accounts. Such a module should not be overly concerned with the particular project it is included in, but it instead should only care about storing data related to social media sites.</p>
+<p>Perhaps the module would also provide some sort of front-end component to render this data such as icon links to each social network site. If an update were to be added to support some new feature (perhaps a selectable list of icons), then the update would be made to the module itself and not the websites. Any site that uses this module could receive the update by <a href="https://getcomposer.org/">running composer</a>.</p>
 <p>Modules are typically namespaced, meaning their classes can only be used in a project when explicitly including it. For example, the full class name for social media links might look something like &quot;Vendor\SocialMedia\SocialMediaLink&quot;. You could use this class directly by prepending the class with a backslash like:</p>
 <pre><code>$facebook = new \Vendor\SocialMedia\SocialMediaLink();
 </code></pre>
@@ -258,19 +326,25 @@ jobs:
 <pre><code>use Vendor\SocialMedia\SocialMediaLink;
 $facebook = new SocialMediaLink();
 </code></pre>
-<p>Namespacing your modules ensures that the class names never conflict with those that are defined globally.</p>
+<p>Namespacing your modules ensures that its class names never conflict with those that are defined globally or in different modules.</p>
 <h2>Write Methods for common actions</h2>
-<p>There are some processes that will need to occur in several areas of your project. This could be something like formatting dates. It is usually a good idea to keep a consistent date format across a project. Your code could have several functions to retrieve dates, but it could be repeating the same code that formats the date in each. It might make sense for you to write a method just for formatting the dates. With one reusable method for date formatting, you will not find yourself writing the same code in several areas.</p>
-<p>Sticking to this idea, consider the purpose of each function before writing. If the function requires several separate processes to occur before the main goal is achieved, it would make sense to break each task out into a separate function. Doing this makes your code more readable and more reusable. For example, your code might have a method that retrieves and renders blog articles that have been marked &quot;Published&quot;. We will call this method &quot;renderPublishedArticles&quot;. If your website has a content management system, it would be a good idea to flag unpublished articles. The code here will likely use a method like &quot;getAllArticles&quot; to list articles in the CMS. Instead of repeating code to check if articles are published in both methods, a better solution would be to write a method that just checks the &quot;Published&quot; status of an article. This method might be named &quot;getPublishedArticles&quot;. The &quot;renderPublishedArticles&quot; and &quot;getAllArticles&quot; methods would both call this method. Because the functionality has been encapsulated in a function name, we know exactly what is happening when reading the code for each method.</p>
-<p>If a change has to be made, the change is made in one area of the code, rather than each time the code is repeated. In the case of our date formatting method, we might opt for a different date format. You will thank youself later for writing reusable methods when changes like this are necessary.</p>
+<p>There are some processes that will need to occur in several areas of your project. This could be something like formatting dates. It is usually a good idea to keep a consistent date format across a project.</p>
+<p>Your code could have several functions to retrieve dates, but it could be repeating the same code that formats the date in each. It might make sense for you to write a method just for formatting the dates. With one reusable method for date formatting, you will not find yourself writing the same code in several areas.</p>
+<p>Sticking to this idea, consider the purpose of each function before writing. If the function requires several separate processes to occur before the main goal is achieved, it would make sense to break each task out into a separate function. Doing this makes your code more readable and more reusable.</p>
+<p>For example, your code might include a method that retrieves and renders blog articles that have been marked &quot;Published&quot;. We will call this method &quot;renderPublishedArticles&quot;. If your website has a content management system, it would be a good idea to flag unpublished articles. The code here would likely use a method like &quot;getAllArticles&quot; to list articles in the CMS.</p>
+<p>Instead of repeating code to check if articles are published in both methods, a better solution would be to write a method that just checks the &quot;Published&quot; status of an article. This method could be named something like &quot;getPublishedArticles&quot;. The &quot;renderPublishedArticles&quot; and &quot;getAllArticles&quot; methods would both call this method, so the code would otherwise appear in two areas had we not written functions.</p>
+<p>Because the functionality has been encapsulated in a function name, we know exactly what is happening when reading the code for each method.</p>
+<p>If a change has to be made, the change is made in one area of the code, rather than for each time the code is repeated. In the case of our date formatting method, we might opt for a different date format. You will thank yourself later for writing reusable methods when changes like this are necessary.</p>
 <h2>Use Classes to Encapsulate Components</h2>
-<p>If you are familiar with Object-Oriented Programming (OOP), you know that you can use classes to encapsulate certain behaviors of your components. In object-oriented programming languages like PHP, you might have a class that represents some type of model. That model will be responsible for defining some data structure, and it will likely provide methods to interact with related components. For example, you might have a class called &quot;Page&quot;. This model might define fillable database fields like &quot;HTML Content&quot; and &quot;Featured Images&quot;. This class could have methods to interact with these relationships, such as a &quot;getRecentFeaturedImages&quot; method.</p>
-<p>A website will commonly have different types of pages. Some functionality should be shared between all pages, but some pages will have different concerns. For example, a blog page might be responsible for storing and fetching written articles. A home page will usually feature a large banner image, video, or slideshow. If we want our &quot;Page&quot; class to be extendable, it should only be concerned with the functionality that should be shared across every page type. We could then extend the Page class for each page type and add the appropriate functionality:</p>
+<p>If you are familiar with Object-Oriented Programming (OOP), you know that you can use classes to encapsulate certain behaviors of your components. In object-oriented programming languages like PHP, you might have a class that represents some type of data model to be rendered. That model will be responsible for defining some data structure, and it will likely provide methods to interact with related components.</p>
+<p>For example, you might have a class called &quot;Page&quot;. This model might define fill-able database fields like &quot;HTML Content&quot; and &quot;Featured Images&quot;. This class might also include methods to interact with the objects established in these relationships, such as a &quot;getRecentFeaturedImages&quot; method.</p>
+<p>A website will commonly have different types of pages. Some functionality should be shared between all pages, but other pages will have different concerns. For example, a blog page might be responsible for storing and fetching written articles, but a home page will usually feature a large banner image, video, or slideshow. If we want our &quot;Page&quot; class to be extendable, it should only be concerned with the functionality that would be shared across every page type. We could then extend the Page class for each page type and add the appropriate functionality:</p>
 <pre><code>class Page
 {
  // Define the functionality that should exist on all pages
  ...
 }
+
 class HomePage extends Page
 {
  // This inherits from &quot;Page&quot;, so just define everything unique to a Home Page
@@ -278,80 +352,85 @@ class HomePage extends Page
 }
 </code></pre>
 <h2>Conclusion</h2>
-<p>Writing reusable code has a plethora of benefits, as you have seen. Employing these tips means writing code that is consistent everywhere, even across projects. When many common actions are abstracted into separate methods, the code will naturally become more readable and declarative, as most methods will call other methods, each with descriptive names. When functionality needs to be shared between components, having a shared base class that each extends means writing less code overall. While it might be easy to simply paste in some code that is already used somewhere else, it will be more difficult to maintain later on should things change. Instead, think about how to keep each bit of your code clear in its purpose, so that it is reusable, should you need it for something else tomorrow.</p>
+<p>Writing reusable code has a plethora of benefits, as you have seen. Employing these tips means writing code that is consistent everywhere, even across projects.</p>
+<p>When many common actions are abstracted into separate methods, the code will naturally become more readable and declarative. Methods will be rewritten to call other methods, each with descriptive names. Your code will naturally become more declarative, and read more like a set of instructions that a human could make sense of.</p>
+<p>When functionality needs to be shared between components, having a shared base class that each extends means writing less code overall.</p>
+<p>While it might be easy to simply paste in some code that is already used somewhere else, it will be more difficult to maintain later on should things change. Instead, think about how to keep each bit of your code clear in its purpose, so that it is reusable, should you need it for something else tomorrow.</p>
 
         ]]>
     </content>
   </entry><entry>
     <id>/posts%5CTake_Your_Web_App_from_React_To_React_Native.html</id>
-    <title>Take%20Your%20Web%20App%20from%20React%20To%20React%20Native</title>
+    <title>Take Your Web App from React To React Native</title>
     <updated>2021-01-26T02:33:05+00:00</updated>
     <published>2021-01-26T02:33:05+00:00</published>
     <link href="/posts%5CTake_Your_Web_App_from_React_To_React_Native.html"/>
-    <summary>tags%3A%20%5Bexpo%5D%20%23%20Take%20Your%20Web%20App%20from%20React%20To%20React%20Native%20Most%20of%20us%20Web%20Developers%20have%20never%20had%20the%20experience%20of%20building%20a%20mobile%20app.%20The%20task%20may%20seem%20daunting%20and%20out%20of%20the%20usual%20comfort%20zone.%20You%20might%20be%20starting%20with%20no%20Java%20or%20Swift%20experience.%20Learning%20both%20will%20take%20some%20time%2C%20and%20you%20would%20need%20to%20manage%20two%20codebases.%20Lucky%20for%20us%2C%20there%20is%20React%20Native%20and%20Expo.%20%3Cimg%20alt%3D%22%22%20src%3D%22images/reactNative.png%22%20height%3D%22228%22%20width%3D%22456%22%20/%3ECreate%20cross-platform%20mobile%20apps%20with%20React%20Native%20React%20Native%20lets%20us%20developers%20write%20mobile%20apps%20in%20React%2C%20no%20Java%20or%20Swift%20experience%20required....</summary>
+    <summary># Take Your Web App from React To React Native...</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
-        <p>tags: [expo]</p>
-<h1>Take Your Web App from React To React Native</h1>
-<p>Most of us Web Developers have never had the experience of building a mobile app. The task may seem daunting and out of the usual comfort zone. You might be starting with no Java or Swift experience. Learning both will take some time, and you would need to manage two codebases. Lucky for us, there is React Native and Expo.</p>
+        <h1>Take Your Web App from React To React Native</h1>
+<p>Most Web Developers have never had the experience of building a mobile app. The task may seem daunting and outside of the usual comfort zone. You might be starting with no Java or Swift experience. Learning both will take some time, and you would need to manage two codebases. Lucky for us, there is React Native and Expo.</p>
 <p><img alt="" src="images/reactNative.png" height="228" width="456" />Create cross-platform mobile apps with React Native</p>
-<p>React Native lets us developers write mobile apps in React, no Java or Swift experience required. Expo further simplifies the development process. It provides commonly used libraries. It sets up a development environment. It provides debugging tools and much more. With both of these tools, some React experience, and some wit, any web developer can develop their app for iPhone and Android. If you follow these steps, you too can transform your web-based React code into working React Native code.</p>
+<p>React Native lets us developers write mobile apps in React, no Java or Swift experience required. Expo further simplifies the development process of React Native applications. It provides libraries for commonly used mobile app components. Expo also sets up a development environment that can even run on your mobile device with the help of the Expo Go app.</p>
+<p>Armed with both of these tools, some React experience, and some wit, any web developer can develop their mobile app for iPhone and Android. If you follow these steps, you too can transform your web-based React code into working React Native code.</p>
 <p><img alt="" src="images/expo-logo.png" height="201" width="411" />Simplify development. Spend less time getting set up and more time building your app.</p>
 <h2>Replace &lt;div&gt;s with &lt;View&gt;s</h2>
-<p>The &quot;&lt;div&gt;&quot; tag is perhaps the most commonly used element when it comes to web development. React Native has its own version of &quot;&lt;div&gt;&quot;: the &quot;&lt;View&gt;&quot;. Views are used to wrap content areas in your app's layout. Go ahead, copy and paste your web-based React code into your expo app, run a search for &quot;div&quot; and replace it with &quot;View&quot;. Your project may contain other wrappers such as &quot;&lt;section&gt;&quot; or &quot;&lt;article&gt;&quot;. Be sure to replace these as well. Your content wrappers are now native friendly, and you are one step closer to transitioning your app to mobile. Now, let's take care of the text content.</p>
+<p>The &quot;&lt;div&gt;&quot; tag is perhaps the most commonly used element when it comes to web development. React Native has its own version of &quot;&lt;div&gt;&quot;: the &quot;&lt;View&gt;&quot; tag. Views are used to wrap content areas in your app's layout. Go ahead, copy and paste your web-based React code into your expo app, run a search for &quot;div&quot; and replace it with &quot;View&quot;.</p>
+<p>Your project may contain other wrappers such as &quot;&lt;section&gt;&quot; or &quot;&lt;article&gt;&quot;. Be sure to replace these as well. Your content wrappers are now native friendly, and you are one step closer to transitioning your app to mobile. Now, let's take care of the text content.</p>
 <h2>Replace Text Elements with &lt;Text&gt; tags</h2>
-<p>On the web, there are many different types of text tags. You could have headers in the form of &quot;&lt;h1&gt;&quot; down to &quot;&lt;h6&gt;&quot;. Your project might have text in &quot;&lt;span&gt;&quot;, &quot;&lt;p&gt;&quot;, or &quot;&lt;label&gt;&quot; tags. Anywhere there is text, we will replace the tags with the &quot;&lt;Text&gt;&quot; element. Do this with any plain text in your project, but you can skip any links that use the &quot;&lt;a&gt;&quot; tag for now. This will be handled by a different React Native component, which we will cover next.</p>
+<p>On the web, there are many different types of text tags. You could have headers in the form of &quot;&lt;h1&gt;&quot; down to &quot;&lt;h6&gt;&quot;. Your project might have text in &quot;&lt;span&gt;&quot;, &quot;&lt;p&gt;&quot;, or &quot;&lt;label&gt;&quot; tags. Anywhere there is text, we will replace the tags with the &quot;&lt;Text&gt;&quot; element. Do this with any plain text in your project, but you can skip any links that use the &quot;&lt;a&gt;&quot; tag for now. This will be handled by a different React Native component, which will be covered next.</p>
 <h2>Replace Anchor Tag Links With &lt;Button&gt;s</h2>
-<p>Links on the web use the anchor tag: &quot;&lt;a&gt;&quot; with an &quot;href&quot; attribute describing the link's destination. We will replace these links with the React Native &quot;&lt;Button&gt;&quot; element. The text within the link should be moved to the &quot;title&quot; prop of the Button (e.g. &lt;Button title=&quot;Click me&quot;/&gt;). As for the &quot;href&quot;, you will instead define a function to navigate to a screen. This will be placed within the &quot;onPress&quot; prop. <a href="https://reactnative.dev/docs/navigation">Here is a more in-depth guide</a> on how to do this. Some links may also pass data in the form of &quot;GET&quot; variables (e.g. &quot;http://example.com?foo=bar&quot;). The variable &quot;foo&quot; has the value of &quot;bar&quot;. In React Native, you can pass data as an object in the second argument of the navigation function. You would instead write something like: &quot;navigation.navigate('Example', {foo: 'bar'})&quot;.</p>
+<p>Links on the web use the anchor tag: &quot;&lt;a&gt;&quot; with an &quot;href&quot; attribute describing the link's destination. We will replace these links with the React Native &quot;&lt;Button&gt;&quot; element. The text within the link should be moved to the &quot;title&quot; prop of the Button (e.g. &lt;Button title=&quot;Click me&quot;/&gt;).</p>
+<p>As for the &quot;href&quot;, you will instead define a function to navigate to a screen. This will be placed within the &quot;onPress&quot; prop. <a href="https://reactnative.dev/docs/navigation">Here is a more in-depth guide</a> on how to do this.</p>
+<p>Some links may also pass data in the form of &quot;GET&quot; variables (e.g. &quot;http://example.com?foo=bar&quot;). The variable &quot;foo&quot; has the value of &quot;bar&quot;. In React Native, you can pass data as an object in the second argument of the navigation function. You would instead write something like: &quot;navigation.navigate('Example', {foo: 'bar'})&quot;.</p>
 <p>You still may need to update &quot;&lt;input&gt;&quot;s to &quot;&lt;TextInput&gt;&quot;s or &quot;&lt;video&gt;&quot;s to &quot;&lt;Video&gt;&quot;s, but by now you should see that for every web element, there is a React Native equivalent component. Take some time to confirm each HTML tag is replaced with the appropriate component. With all of these changes, your app should be well on its way to working on iPhone and Android.</p>
 
         ]]>
     </content>
   </entry><entry>
     <id>/posts%5CStop_Making_Site_Updates_Harder_For_Yourself_%26_Customers.html</id>
-    <title>Stop%20Making%20Site%20Updates%20Harder%20For%20Yourself%20%26%20Customers</title>
+    <title>Stop Making Site Updates Harder For Yourself &amp; Customers</title>
     <updated>2020-09-15T00:41:41+00:00</updated>
     <published>2020-09-15T00:41:41+00:00</published>
     <link href="/posts%5CStop_Making_Site_Updates_Harder_For_Yourself_%26_Customers.html"/>
-    <summary>tags%3A%20%5Bbusiness%5D%20%23%20Stop%20Making%20Site%20Updates%20Harder%20For%20Yourself%20%26%20Customers%20Imagine%20if%20every%20time%20you%20needed%20to%20start%20your%20car%2C%20you%20first%20had%20to%20install%20the%20engine.%20No%20one%20would%20ask%20to%20borrow%20your%20car%2C%20but%20you%20would%20be%20reluctant%20to%20use%20it%20yourself.%20No%20one%20wants%20a%20mundane%20task%20to%20take%20anymore%20time%20and%20effort%20than%20is%20required.%20Simple%20problems%20should%20have%20simple%20solutions%2C%20and%20updates%20to%20our%20websites%20should%20be%20painless.%20A%20site%20that%20works%20on%20one%20machine%2C%20should%20work%20on%20any%20machine.%20A%20site%20that%20needs%20a%20single%20change%20in%20punctuation%20on%20a%20single%20page%2C...</summary>
+    <summary># Stop Making Site Updates Harder For Yourself &amp; Customers...</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
-        <p>tags: [business]</p>
-<h1>Stop Making Site Updates Harder For Yourself &amp; Customers</h1>
+        <h1>Stop Making Site Updates Harder For Yourself &amp; Customers</h1>
 <p>Imagine if every time you needed to start your car, you first had to install the engine. No one would ask to borrow your car, but you would be reluctant to use it yourself. No one wants a mundane task to take anymore time and effort than is required. Simple problems should have simple solutions, and updates to our websites should be painless. A site that works on one machine, should work on any machine. A site that needs a single change in punctuation on a single page, should not require a developer.</p>
 <h2>Use different environments</h2>
-<p>Development of a website often begins locally. The site is installed on the same computer the developer works with. When the site is finished, it is often staged in a development environment. The website is accessible from the internet, but it is not yet optimized for the public. When the site is ready to go live, it is installed again in a separate production environment. The site should function nearly identical in all three environments, but certain things should behave differently. In the case of an overlooked fatal error, we wouldn't want to show an end-user a long error trace; only the developer cares about that sort of thing. When entering payment information, we wouldn't want a real transaction to occur during development. Our site should behave differently in subtle ways, depending on our environment. Managing three different codebases for each environment would be highly inefficient and prone to errors. This is where environment variables come into play. With a single configuration file, we can control every setting that should differ in each instance of our site. The code should read the declared environment variables, and decide whether it should actually charge a debit card, or run a fake transaction in a test sandbox.</p>
+<p>Development of a website often begins locally. The site is installed on the same computer the developer works with. When the site is finished, it is often staged in a development environment. The website is accessible from the internet, but it is not yet optimized for the public. When the site is ready to go live, it is installed again in a separate production environment. The site should function nearly identical in all three environments, but certain things should behave differently. In the case of an overlooked fatal error, we wouldn't want to show an end-user a long error trace; only the developer cares about that sort of thing. When entering payment information, we wouldn't want a real transaction to occur during development. Our site should behave differently in subtle ways, depending on our environment. Managing three different codebases for each environment would be highly inefficient and prone to errors. This is where environment variables come into play. With a single configuration file, we can control every setting that should differ in each instance of our site. The code should read the declared environment variables, and decide whether it should actually charge a debit card, or run a fake transaction in a test sandbox environment.</p>
 <img alt="" src="images/environment.jpg" height="328" width="493" />
 <i>In windy environments, the turbines are more effective at producing power</i>
 <h2>Break stuff in isolation</h2>
-<p>Implementing this workflow means that updates for a website are relatively painless for everyone. You and your customers will not have to sweat nervously when making changes that could range from small to dramatic. A developer can work comfortably in a local environment, free to break anything without consequence. Compare this to working on a production site blindly. Both parties risk facing devastating consequences while making changes live and on the fly.</p>
+<p>Start coding on your local environment and break your program in any way you can. Experimentation on local environments should occur often to ensure a robust production environment. Implementing this workflow means that updates for a website are relatively painless for everyone. You and your customers will not have to sweat nervously when making changes that could range from small to dramatic. A developer can work comfortably in a local environment, free to break anything without consequence. Compare this to working on a production site blindly. Both parties risk facing devastating consequences while making changes live and on the fly.</p>
 <img alt="" src="images/solar-panel.jpg" height="326" width="492" />
 <i>Also a source of power, solar panels are more appropriate in sunny environments</i>
 <h2>Use a CMS</h2>
-<p>Think about installing your car engine to drive again. If you are a mechanic, this might feel tedious and time-consuming, but you are confident in your ability to start the car. Now, imagine that the only thing that you are familiar with is the brake pedal, gas pedal, and steering wheel. Starting that car is going to feel intimidating and daunting. You may just decide to walk that day.</p>
-<p>Your customers do not want to install an engine just to drive. When it comes to their website, content should be updated easily, without any need to touch code. Thankfully, we have Content Management Systems to solve this problem. A developer will write code that will define page types and data objects. This code will make use of templates to layout the content of the site. From this point, content can be entered in a user-friendly Graphical User Interface and published to the site. A great Content Management System, as well as my personal favorite, is SilverStripe. SilverStripe makes both the developers and customers' lives easier when bringing sites to life. Silverstripe is clean and comprehensible, both in its code and in its user interface. You can check out my tutorials on the SilverStripe CMS and Framework here <a href="https://www.youtube.com/watch?v=XVOianFRSl0">https://www.youtube.com/watch?v=XVOianFRSl0</a></p>
+<p>Think about installing your car engine to drive again. If you are a mechanic, while this may feel tedious and time-consuming, you are confident in your ability to start the car. Now, imagine that the only parts of a car that you are familiar with are the brake pedal, gas pedal, and steering wheel. Starting that car is going to feel intimidating and daunting. You may just decide to walk that day.</p>
+<p>Your customers do not want to install an engine just to drive. When it comes to their website, content should be updated easily, without any need to touch code. Thankfully, we have Content Management Systems to solve this problem. A developer will write code that will define page types and data objects. This data will make use of templates to be rendered in the layout of the site. From this point, content can be entered in a user-friendly, Graphical User Interface, and then published to the site. A great Content Management System, as well as my personal favorite, is SilverStripe. SilverStripe makes both the developers and customers' lives easier when bringing sites to life. SilverStripe is clean and comprehensible, both in its code and in its user interface. You can check out my tutorials on the SilverStripe CMS and Framework here <a href="https://www.youtube.com/watch?v=XVOianFRSl0">https://www.youtube.com/watch?v=XVOianFRSl0</a></p>
 <p><img src="images/silverstripe.png" alt="" />Learn SilverStripe and save everyone some headache</p>
-<p>KISS is not only a hard rock band from the 1970s, but a clever acronym when avoiding complexity. Keep It Simple Stupid. You and your customers do not want risky changes made to a site running in production. Your customers want things to be as easy as pie. Give them a CMS that both of you will love. Just remember to KISS; everyone enjoys it.</p>
+<p>KISS is not only a hard rock band from the 1970s, but a clever acronym used by developers when avoiding complexity. Keep It Simple Stupid. You and your customers do not want risky changes to be made to a site running in production. Your customers want things to be as easy as pie. Give them a CMS that both of you will love. Just remember to keep it simple.</p>
 
         ]]>
     </content>
   </entry><entry>
     <id>/posts%5CTools_I_took_for_granted.html</id>
-    <title>Tools%20I%20took%20for%20granted</title>
+    <title>Tools I took for granted</title>
     <updated>2020-03-08T17:30:08+00:00</updated>
     <published>2020-03-08T17:30:08+00:00</published>
     <link href="/posts%5CTools_I_took_for_granted.html"/>
-    <summary>%23%20Tools%20I%20took%20for%20granted...</summary>
+    <summary># Tools I took for granted...</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
         <h1>Tools I took for granted</h1>
-<p>With today's modern work-flow, it is easy to feel spoiled with all of our handy tools. Git allows us to rollback to any previous commit in our application, just in case something were to go horribly wrong. A CMS allows us to easily update content without ever touching the code. Package managers like NPM and Composer can provide our project with all of its dependencies simply by running a command. But developers are not always working on new code. A majority of time is spent working on existing code. Some of that code may feel severely antiquated from what we are used to.</p>
+<p>With today's modern day-to-day workflow, it is easy to feel spoiled with all of the handy tools at our disposal. Tools like Git allows us to rollback to any previous state of our applications, just in case something were to go horribly wrong. A Content Management System (CMS) allows us to easily update content, without ever touching the code. Package managers like NPM and Composer can provide our project with all of the dependencies it needs simply by running a command. But sometimes, these tools may not be available to you. You might remotely connected to a client's server, which can lack the software you would commonly use in your own environment. And developers are not always working on new code. A majority of time is spent working on existing code. Some of that code may feel severely antiquated from what we are used to.</p>
 <h2>Git</h2>
-<p>Imagine starting on a new project without Git. Scary right? Git is an essential part of today's development. However, you may find yourself working on an older project that does not use version control. To safely make changes you will need to create a backup of every file you change. That way if you do break something you are left SOL. When you are ready to make your changes live, you cannot just pull to a repository. You will need to FTP every file you changed individually. All of this is a huge headache by today's standards. Not only are you at a much higher risk of creating irreversible damage, but you must keep track of moving parts manually.</p>
+<p>Imagine starting on a new project without Git. Scary right? Git is an essential part of today's software development. However, you may find yourself working on an older project that does not use version control. To safely make changes, a developer would need to create a backup of every file that was changed. That way, if something does break, the developer and client are not left SOL. In this situation, when the changes are ready to go live, it is not as simple as just pulling down from a repository. If you find yourself in this situation, you will need to FTP every file you changed individually. All of this is a huge headache by today's standards. Not only are you at a much higher risk of creating irreversible damage, but you must keep track of each moving part manually.</p>
 <h2>Content Management Systems</h2>
-<p>Content management systems make customizing your pages very simple. With a CMS you can upload content to your site without any need to touch the code. But what if you have a static site made up of several HTML files and no CMS? If you need to make a change to the frame of your site (navigation, footers, etc...), that change will have to be made across several files. Now, you could use a search and replace tool to make this happen all at once, but what if you have something like a &quot;selected&quot; class on navigation items? Each page will have the same navigation but with a unique selected value. You can start to imagine the headache of editing nearly identical elements across several files. With most content management systems, this is all taken care of.</p>
+<p>Content management systems make customizing the content on pages very simple. With a CMS you can upload content to your site without the need to touch any code. But what if you have a static site made up of several HTML files and no CMS? If you need to make a change to the base layout of your site (headers, main navigations, footers, etc...), that change will need to be made across several files. You could use a search and replace tool (<a href="./rebuilding_my_blog.html">or a static site generator</a>) to make this all happen at once, but what if you have something like a &quot;selected&quot; class on navigation items? Each page will have the same navigation but with a unique selected class for the current page's navigation item. You can start to imagine the headache of editing nearly identical elements across several files. With most content management systems, this is all taken care of.</p>
 <h2>Package Managers</h2>
-<p>With package managers, by running a single command, you can install all of your projects dependencies. Older projects may not be fortunate enough to include this. When working on a project like this, you may need to individually initiatialize and update submodules. It can be unclear what packages your project requires You may find yourself refreshing your browser until the errors are gone. With tools like Composer and NPM, these concerns are eliminated, so you can spend more time working on your project than resolving dependency issues.</p>
+<p>With package managers, you can install all of the code your project needs by running a single command. Older projects may not be fortunate enough to include a file for the package managers that lists the dependencies to be installed. When working on a project like this, you may need to individually initialize and update git submodules (git is great for version control, but use your chose programming languages' most popular package manager please). What's worse is dealing with source code from a separate project, copy, pasted, and committed directly into a different project. In either of these situations, it can be unclear what packages your project requires, and the project will not receive the patches that would be pulled in from a package manager. With tools like Composer and NPM, these concerns are eliminated, so you can spend more time working on your project than resolving issues created from incompatible code.</p>
 <h2>Let your tools do the work</h2>
 <p>Modern tools make our lives as developers much easier. However, we still find ourselves supporting older projects without these amenities. Working with these systems is far from impossible, but more caution and patience is often required.</p>
 
@@ -359,15 +438,14 @@ class HomePage extends Page
     </content>
   </entry><entry>
     <id>/posts%5CBecoming_part_of_a_team.html</id>
-    <title>Becoming%20part%20of%20a%20team</title>
+    <title>Becoming part of a team</title>
     <updated>2019-09-14T13:22:52+00:00</updated>
     <published>2019-09-14T13:22:52+00:00</published>
     <link href="/posts%5CBecoming_part_of_a_team.html"/>
-    <summary>tags%3A%20%5Bgit%5D%20%23%20Becoming%20part%20of%20a%20team%20As%20of%20this%20writing%2C%20I%20am%20a%20few%20weeks%20into%20my%20first%20job%20as%20a%20junior%20web%20developer.%20I%20am%20thrilled%20to%20become%20part%20of%20an%20active%20development%20team.%20I%20had%20practiced%20and%20learned%20on%20my%20own%2C%20and%20now%20I%20must%20do%20so%20in%20a%20team.%20The%20first%20few%20days%20have%20taught%20me%20a%20few%20things%20about%20working%20in%20a%20business%20setting.%20I%20have%20learned%20that%20it%20is%20important%20to%20keep%20track%20of%20the%20time%20that%20I%20put%20into%20my%20tasks.%20I%20am%20becoming%20more%20familiar%20with%20the%20process%20of%20submitting%20pull...</summary>
+    <summary># Becoming part of a team...</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
-        <p>tags: [git]</p>
-<h1>Becoming part of a team</h1>
+        <h1>Becoming part of a team</h1>
 <p>As of this writing, I am a few weeks into my first job as a junior web developer. I am thrilled to become part of an active development team. I had practiced and learned on my own, and now I must do so in a team. The first few days have taught me a few things about working in a business setting. I have learned that it is important to keep track of the time that I put into my tasks. I am becoming more familiar with the process of submitting pull requests and receiving code reviews. I have learned to keep track of cards and organize my assignments with Trello.</p>
 <h2>Doing real work for the real world</h2>
 <p>When working on projects for real clients, it is important to be accurate and transparent with the cost of development. It also helps developers have a better estimate on the amount of time a feature will take to build. That is why it is important for me to track my times. I was introduced to a program called &quot;Minute7&quot;. It is a simple and handy tool for tracking time. I simply enter the client, the task, and the times I started and concluded working on a task. It is not overly complex, and it helps those on the business end accurately quote clients and make more informed decisions.</p>
@@ -383,15 +461,14 @@ class HomePage extends Page
     </content>
   </entry><entry>
     <id>/posts%5CThe_End_of_My_Internship.html</id>
-    <title>The%20End%20of%20My%20Internship</title>
+    <title>The End of My Internship</title>
     <updated>2019-08-06T17:04:17+00:00</updated>
     <published>2019-08-06T17:04:17+00:00</published>
     <link href="/posts%5CThe_End_of_My_Internship.html"/>
-    <summary>tags%3A%20%5Bclients%5D%20%23%20The%20End%20of%20My%20Internship%20In%20May%20of%20this%20year%2C%20I%20got%20my%20first%20web%20development%20Internship.%20It%20has%20been%20a%20twelve%20week%20program%2C%20rebuilding%20site%20in%20the%20company%27s%20framework.%20During%20this%20time%2C%20I%20took%20time%20off%20from%20work%20so%20I%20could%20continue%20to%20my%20self-education%20in%20my%20spare%20time.%20This%20gave%20me%20much%20more%20flexibility%20to%20practice%20and%20learn.%20I%20was%20able%20to%20be%20especially%20productive%20with%20my%20time%20in%20the%20internship.%20I%20have%20practiced%20soft%20skills%20such%20as%20writing%20or%20fixing%20documentation%2C%20sharing%20ideas%2C%20and%20public%20speaking.%20%23%23%20New%20Framework%20A%20lot%20of%20my%20recent...</summary>
+    <summary># The End of My Internship...</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
-        <p>tags: [clients]</p>
-<h1>The End of My Internship</h1>
+        <h1>The End of My Internship</h1>
 <p>In May of this year, I got my first web development Internship. It has been a twelve week program, rebuilding site in the company's framework. During this time, I took time off from work so I could continue to my self-education in my spare time. This gave me much more flexibility to practice and learn. I was able to be especially productive with my time in the internship. I have practiced soft skills such as writing or fixing documentation, sharing ideas, and public speaking. </p>
 <h2>New Framework</h2>
 <p>A lot of my recent training has been focused on SilverStripe, a PHP CMS and framework. On the surface, SilverStripe seems similar to something like WordPress. SilverStripe, however, is not just a CMS but also an MVC framework, something like Laravel. It is not as simple as editing a theme and installing a few plugins. SilverStripe is largely based around having classes represent page types and having those classes provide fields for the CMS. Templates will then &quot;listen&quot; to the data entered in said fields.</p>
@@ -409,15 +486,14 @@ class HomePage extends Page
     </content>
   </entry><entry>
     <id>/posts%5CLinux_to_a_lifetime_Windows_User.html</id>
-    <title>Linux%20to%20a%20lifetime%20Windows%20User</title>
+    <title>Linux to a lifetime Windows User</title>
     <updated>2019-04-11T20:41:38+00:00</updated>
     <published>2019-04-11T20:41:38+00:00</published>
     <link href="/posts%5CLinux_to_a_lifetime_Windows_User.html"/>
-    <summary>tags%3A%20%5Blinux%5D%20%23%20Linux%20to%20a%20lifetime%20Windows%20User%20Microsoft%20Windows%20was%20the%20first%20operating%20system%20that%20I%20had%20ever%20used.%20My%20first%20computer%20was%20a%20hand-me-down%20Windows%20XP%20desktop%20from%20my%20parents.%20I%20had%20never%20had%20the%20chance%20to%20try%20an%20Apple%20computer%20until%20middle%20school.%20The%20school%20district%20there%20had%20used%20all%20Apple%20products.%20Not%20until%20graduating%20High%20School%20and%20teaching%20myself%20to%20code%20did%20I%20ever%20install%20my%20own%20Linux%20distro.%20%23%23%20What%20the%20heck%20is%20a%20Linux%20and%20who%20makes%20it%3F%20I%20do%20not%20remember%20the%20first%20time%20that%20I%20heard%20about%20Linux%2C%20but%20the%20concept...</summary>
+    <summary># Linux to a lifetime Windows User...</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
-        <p>tags: [linux]</p>
-<h1>Linux to a lifetime Windows User</h1>
+        <h1>Linux to a lifetime Windows User</h1>
 <p>Microsoft Windows was the first operating system that I had ever used. My first computer was a hand-me-down Windows XP desktop from my parents. I had never had the chance to try an Apple computer until middle school. The school district there had used all Apple products. Not until graduating High School and teaching myself to code did I ever install my own Linux distro.</p>
 <h2>What the heck is a Linux and who makes it?</h2>
 <p>I do not remember the first time that I heard about Linux, but the concept seemed very different from what I had expected about computers at the time. I did not understand how a free piece of software could be distributed. How can people work together to create something that is not maintained by one company, calling all the shots. How could something distributed and developed by hundreds of people work in an &quot;open source&quot; environment. And if there are more than one distribution, how could they all call themselves &quot;<em>Linux</em>&quot;.</p>
@@ -436,15 +512,14 @@ class HomePage extends Page
     </content>
   </entry><entry>
     <id>/posts%5CBugs_I_needed_a_user_to_find.html</id>
-    <title>Bugs%20I%20needed%20a%20user%20to%20find</title>
+    <title>Bugs I needed a user to find</title>
     <updated>2019-03-19T17:55:09+00:00</updated>
     <published>2019-03-19T17:55:09+00:00</published>
     <link href="/posts%5CBugs_I_needed_a_user_to_find.html"/>
-    <summary>tags%3A%20%5Bcss%5D%20%23%20Bugs%20I%20needed%20a%20user%20to%20find%20Using%20things%20more%20often%20makes%20them%20easier%20to%20use%20again.%20When%20I%20work%20on%20projects%2C%20I%20know%20what%20I%20want%20the%20project%20to%20be%20at%20the%20end.%20I%20know%20what%20it%20should%20look%20like%20and%20how%20I%20want%20to%20work.%20But%20then%20there%20are%20things%20that%20I%20do%20not%20think%20of.%20Recently%2C%20I%20have%20finished%20a%20list%20of%20changes%20that%20I%20would%20make%20to%20my%20portfolio%20and%20personal%20projects.%20I%20finished%20everything%20task%20list%2C%20and%20to%20me%2C%20I%20thought%20everything%20looked%20good.%20I%20started%20to%20show%20my%20portfolio%20to%20people...</summary>
+    <summary># Bugs I needed a user to find...</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
-        <p>tags: [css]</p>
-<h1>Bugs I needed a user to find</h1>
+        <h1>Bugs I needed a user to find</h1>
 <p>Using things more often makes them easier to use again. When I work on projects, I know what I want the project to be at the end. I know what it should look like and how I want to work. But then there are things that I do not think of. Recently, I have finished a list of changes that I would make to my portfolio and personal projects.</p>
 <p>I finished everything task list, and to me, I thought everything looked good. I started to show my portfolio to people I knew. I asked them what they thought and what they suggested. One person was having a hard time using the navigation, something that I did not expect to be a snag. I did not blame her, and decided to redo the navigation to make it easier.</p>
 <p>What I noticed first was that it was not obvious that any content existed further down the page. I thought of ways I could clue the user into scrolling down. I came up on the idea of a downwards pointing arrow that bobs and disappears after scrolling.</p>

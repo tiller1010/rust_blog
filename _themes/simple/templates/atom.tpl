@@ -12,11 +12,11 @@
   {% for post in posts -%}
   <entry>
     <id>{{ config.site_url }}{{ post.url  | urlencode }}</id>
-    <title>{{ post.title | urlencode }}</title>
+    <title>{{ post.title | replace(from="&", to="&amp;") }}</title>
     <updated>{{ post.headers.created | date(format="%Y-%m-%dT%H:%M:%S%:z") }}</updated>
     <published>{{ post.headers.created | date(format="%Y-%m-%dT%H:%M:%S%:z") }}</published>
     <link href="{{ config.site_url }}{{ post.url  | urlencode }}"/>
-    <summary>{{ post.headers.description | urlencode }}</summary>
+    <summary>{{ post.headers.description | replace(from="&", to="&amp;") }}</summary>
     <content type="html" xml:lang="en" xml:base="{{ config.site_url }}">
         <![CDATA[
         {{ post.content }}
