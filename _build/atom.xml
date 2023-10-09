@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <id></id>
   <title>Tyler Trout's Blog</title>
-  <updated>2023-10-08T13:27:17-04:00</updated>
+  <updated>2023-10-09T10:34:29-04:00</updated>
   <subtitle>Full Stack Web Development</subtitle>
   <icon>/media/favicon.png</icon>
   <logo>/media/favicon.png</logo>
@@ -11,7 +11,7 @@
   <generator uri="https://github.com/FuGangqiang/mdblog.rs">mdblog.rs</generator>
   <entry>
     <id>/posts%5Crebuilding_my_blog.html</id>
-    <title>rebuilding my blog</title>
+    <title>Rebuilding My Blog</title>
     <updated>2023-10-03T08:36:50-04:00</updated>
     <published>2023-10-03T08:36:50-04:00</published>
     <link href="/posts%5Crebuilding_my_blog.html"/>
@@ -35,14 +35,15 @@
     </content>
   </entry><entry>
     <id>/posts%5CManage_multiple_versions_with_gitflow_and_GitHub.html</id>
-    <title>Manage multiple versions with gitflow and GitHub</title>
+    <title>Manage Multiple Versions With Gitflow And GitHub</title>
     <updated>2022-09-04T21:46:01+00:00</updated>
     <published>2022-09-04T21:46:01+00:00</published>
     <link href="/posts%5CManage_multiple_versions_with_gitflow_and_GitHub.html"/>
-    <summary># Manage multiple versions with GitFlow and GitHub...</summary>
+    <summary>tags: [actions] # Manage multiple versions with GitFlow and GitHub Imagine this: you want to add a new feature to a repository, but it involves a change that will break backward compatibility. You could release a new major version, but other repositories may depend on the previous version of your software. In this case, you need to support an older version simultaneously with the next major version. Git-flow is a branching strategy that eases the burden of managing multiple versions, but it can be tricky to implement in a team using GitHub. Git-flow provides several benefits: * Git-flow uses distinct...</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
-        <h1>Manage multiple versions with GitFlow and GitHub</h1>
+        <p>tags: [actions]</p>
+<h1>Manage multiple versions with GitFlow and GitHub</h1>
 <p>Imagine this: you want to add a new feature to a repository, but it involves a change that will break backward compatibility. You could release a new major version, but other repositories may depend on the previous version of your software.</p>
 <p>In this case, you need to support an older version simultaneously with the next major version. Git-flow is a branching strategy that eases the burden of managing multiple versions, but it can be tricky to implement in a team using GitHub. Git-flow provides several benefits:</p>
 <ul>
@@ -309,10 +310,11 @@ jobs:
     <updated>2021-07-05T00:15:38+00:00</updated>
     <published>2021-07-05T00:15:38+00:00</published>
     <link href="/posts%5CWrite_Reusable_PHP.html"/>
-    <summary># Write Reusable PHP...</summary>
+    <summary>tags: [module] # Write Reusable PHP Have you ever found yourself writing code with a sense Déjà vu? You feel as though the code you are writing has already been written somewhere else. This could potentially be within the same project or even the same file. You do not want to be stuck repeating yourself and you do not want to waste time finding answers to the problems you have already solved. You might already be familiar with the "DRY" principle (Don't Repeat Yourself). Repeating code not only makes your project look sloppy and difficult to read (and therefore manage);...</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
-        <h1>Write Reusable PHP</h1>
+        <p>tags: [module]</p>
+<h1>Write Reusable PHP</h1>
 <p>Have you ever found yourself writing code with a sense Déjà vu? You feel as though the code you are writing has already been written somewhere else. This could potentially be within the same project or even the same file.</p>
 <p>You do not want to be stuck repeating yourself and you do not want to waste time finding answers to the problems you have already solved. You might already be familiar with the &quot;DRY&quot; principle (Don't Repeat Yourself). Repeating code not only makes your project look sloppy and difficult to read (and therefore manage); it increases the likelihood of bugs, and it makes the code more difficult to manage. Here are a few helpful tips for producing PHP code that you can use often, but write only once.</p>
 <h2>Use Modules</h2>
@@ -361,14 +363,15 @@ class HomePage extends Page
     </content>
   </entry><entry>
     <id>/posts%5CTake_Your_Web_App_from_React_To_React_Native.html</id>
-    <title>Take Your Web App from React To React Native</title>
+    <title>Take Your Web App From React To React Native</title>
     <updated>2021-01-26T02:33:05+00:00</updated>
     <published>2021-01-26T02:33:05+00:00</published>
     <link href="/posts%5CTake_Your_Web_App_from_React_To_React_Native.html"/>
-    <summary># Take Your Web App from React To React Native...</summary>
+    <summary>tags: [expo] # Take Your Web App from React To React Native Most Web Developers have never had the experience of building a mobile app. The task may seem daunting and outside of the usual comfort zone. You might be starting with no Java or Swift experience. Learning both will take some time, and you would need to manage two codebases. Lucky for us, there is React Native and Expo. <img alt="" src="images/reactNative.png" height="228" width="456" />Create cross-platform mobile apps with React Native React Native lets us developers write mobile apps in React, no Java or Swift experience required. Expo further...</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
-        <h1>Take Your Web App from React To React Native</h1>
+        <p>tags: [expo]</p>
+<h1>Take Your Web App from React To React Native</h1>
 <p>Most Web Developers have never had the experience of building a mobile app. The task may seem daunting and outside of the usual comfort zone. You might be starting with no Java or Swift experience. Learning both will take some time, and you would need to manage two codebases. Lucky for us, there is React Native and Expo.</p>
 <p><img alt="" src="images/reactNative.png" height="228" width="456" />Create cross-platform mobile apps with React Native</p>
 <p>React Native lets us developers write mobile apps in React, no Java or Swift experience required. Expo further simplifies the development process of React Native applications. It provides libraries for commonly used mobile app components. Expo also sets up a development environment that can even run on your mobile device with the help of the Expo Go app.</p>
@@ -393,10 +396,11 @@ class HomePage extends Page
     <updated>2020-09-15T00:41:41+00:00</updated>
     <published>2020-09-15T00:41:41+00:00</published>
     <link href="/posts%5CStop_Making_Site_Updates_Harder_For_Yourself_%26_Customers.html"/>
-    <summary># Stop Making Site Updates Harder For Yourself &amp; Customers...</summary>
+    <summary>tags: [business] # Stop Making Site Updates Harder For Yourself &amp; Customers Imagine if every time you needed to start your car, you first had to install the engine. No one would ask to borrow your car, but you would be reluctant to use it yourself. No one wants a mundane task to take anymore time and effort than is required. Simple problems should have simple solutions, and updates to our websites should be painless. A site that works on one machine, should work on any machine. A site that needs a single change in punctuation on a single page,...</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
-        <h1>Stop Making Site Updates Harder For Yourself &amp; Customers</h1>
+        <p>tags: [business]</p>
+<h1>Stop Making Site Updates Harder For Yourself &amp; Customers</h1>
 <p>Imagine if every time you needed to start your car, you first had to install the engine. No one would ask to borrow your car, but you would be reluctant to use it yourself. No one wants a mundane task to take anymore time and effort than is required. Simple problems should have simple solutions, and updates to our websites should be painless. A site that works on one machine, should work on any machine. A site that needs a single change in punctuation on a single page, should not require a developer.</p>
 <h2>Use different environments</h2>
 <p>Development of a website often begins locally. The site is installed on the same computer the developer works with. When the site is finished, it is often staged in a development environment. The website is accessible from the internet, but it is not yet optimized for the public. When the site is ready to go live, it is installed again in a separate production environment. The site should function nearly identical in all three environments, but certain things should behave differently. In the case of an overlooked fatal error, we wouldn't want to show an end-user a long error trace; only the developer cares about that sort of thing. When entering payment information, we wouldn't want a real transaction to occur during development. Our site should behave differently in subtle ways, depending on our environment. Managing three different codebases for each environment would be highly inefficient and prone to errors. This is where environment variables come into play. With a single configuration file, we can control every setting that should differ in each instance of our site. The code should read the declared environment variables, and decide whether it should actually charge a debit card, or run a fake transaction in a test sandbox environment.</p>
@@ -416,14 +420,15 @@ class HomePage extends Page
     </content>
   </entry><entry>
     <id>/posts%5CTools_I_took_for_granted.html</id>
-    <title>Tools I took for granted</title>
+    <title>Tools I Took For Granted</title>
     <updated>2020-03-08T17:30:08+00:00</updated>
     <published>2020-03-08T17:30:08+00:00</published>
     <link href="/posts%5CTools_I_took_for_granted.html"/>
-    <summary># Tools I took for granted...</summary>
+    <summary>tags: [cms] # Tools I took for granted With today's modern day-to-day workflow, it is easy to feel spoiled with all of the handy tools at our disposal. Tools like Git allows us to rollback to any previous state of our applications, just in case something were to go horribly wrong. A Content Management System (CMS) allows us to easily update content, without ever touching the code. Package managers like NPM and Composer can provide our project with all of the dependencies it needs simply by running a command. But sometimes, these tools may not be available to you. You...</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
-        <h1>Tools I took for granted</h1>
+        <p>tags: [cms]</p>
+<h1>Tools I took for granted</h1>
 <p>With today's modern day-to-day workflow, it is easy to feel spoiled with all of the handy tools at our disposal. Tools like Git allows us to rollback to any previous state of our applications, just in case something were to go horribly wrong. A Content Management System (CMS) allows us to easily update content, without ever touching the code. Package managers like NPM and Composer can provide our project with all of the dependencies it needs simply by running a command. But sometimes, these tools may not be available to you. You might remotely connected to a client's server, which can lack the software you would commonly use in your own environment. And developers are not always working on new code. A majority of time is spent working on existing code. Some of that code may feel severely antiquated from what we are used to.</p>
 <h2>Git</h2>
 <p>Imagine starting on a new project without Git. Scary right? Git is an essential part of today's software development. However, you may find yourself working on an older project that does not use version control. To safely make changes, a developer would need to create a backup of every file that was changed. That way, if something does break, the developer and client are not left SOL. In this situation, when the changes are ready to go live, it is not as simple as just pulling down from a repository. If you find yourself in this situation, you will need to FTP every file you changed individually. All of this is a huge headache by today's standards. Not only are you at a much higher risk of creating irreversible damage, but you must keep track of each moving part manually.</p>
@@ -438,14 +443,15 @@ class HomePage extends Page
     </content>
   </entry><entry>
     <id>/posts%5CBecoming_part_of_a_team.html</id>
-    <title>Becoming part of a team</title>
+    <title>Becoming Part Of A Team</title>
     <updated>2019-09-14T13:22:52+00:00</updated>
     <published>2019-09-14T13:22:52+00:00</published>
     <link href="/posts%5CBecoming_part_of_a_team.html"/>
-    <summary># Becoming part of a team...</summary>
+    <summary>tags: [git] # Becoming part of a team As of this writing, I am a few weeks into my first job as a junior web developer. I am thrilled to become part of an active development team. I had practiced and learned on my own, and now I must do so in a team. The first few days have taught me a few things about working in a business setting. I have learned that it is important to keep track of the time that I put into my tasks. I am becoming more familiar with the process of submitting pull...</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
-        <h1>Becoming part of a team</h1>
+        <p>tags: [git]</p>
+<h1>Becoming part of a team</h1>
 <p>As of this writing, I am a few weeks into my first job as a junior web developer. I am thrilled to become part of an active development team. I had practiced and learned on my own, and now I must do so in a team. The first few days have taught me a few things about working in a business setting. I have learned that it is important to keep track of the time that I put into my tasks. I am becoming more familiar with the process of submitting pull requests and receiving code reviews. I have learned to keep track of cards and organize my assignments with Trello.</p>
 <h2>Doing real work for the real world</h2>
 <p>When working on projects for real clients, it is important to be accurate and transparent with the cost of development. It also helps developers have a better estimate on the amount of time a feature will take to build. That is why it is important for me to track my times. I was introduced to a program called &quot;Minute7&quot;. It is a simple and handy tool for tracking time. I simply enter the client, the task, and the times I started and concluded working on a task. It is not overly complex, and it helps those on the business end accurately quote clients and make more informed decisions.</p>
@@ -461,14 +467,15 @@ class HomePage extends Page
     </content>
   </entry><entry>
     <id>/posts%5CThe_End_of_My_Internship.html</id>
-    <title>The End of My Internship</title>
+    <title>The End Of My Internship</title>
     <updated>2019-08-06T17:04:17+00:00</updated>
     <published>2019-08-06T17:04:17+00:00</published>
     <link href="/posts%5CThe_End_of_My_Internship.html"/>
-    <summary># The End of My Internship...</summary>
+    <summary>tags: [clients] # The End of My Internship In May of this year, I got my first web development Internship. It has been a twelve week program, rebuilding site in the company's framework. During this time, I took time off from work so I could continue to my self-education in my spare time. This gave me much more flexibility to practice and learn. I was able to be especially productive with my time in the internship. I have practiced soft skills such as writing or fixing documentation, sharing ideas, and public speaking. ## New Framework A lot of my recent...</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
-        <h1>The End of My Internship</h1>
+        <p>tags: [clients]</p>
+<h1>The End of My Internship</h1>
 <p>In May of this year, I got my first web development Internship. It has been a twelve week program, rebuilding site in the company's framework. During this time, I took time off from work so I could continue to my self-education in my spare time. This gave me much more flexibility to practice and learn. I was able to be especially productive with my time in the internship. I have practiced soft skills such as writing or fixing documentation, sharing ideas, and public speaking. </p>
 <h2>New Framework</h2>
 <p>A lot of my recent training has been focused on SilverStripe, a PHP CMS and framework. On the surface, SilverStripe seems similar to something like WordPress. SilverStripe, however, is not just a CMS but also an MVC framework, something like Laravel. It is not as simple as editing a theme and installing a few plugins. SilverStripe is largely based around having classes represent page types and having those classes provide fields for the CMS. Templates will then &quot;listen&quot; to the data entered in said fields.</p>
@@ -486,14 +493,15 @@ class HomePage extends Page
     </content>
   </entry><entry>
     <id>/posts%5CLinux_to_a_lifetime_Windows_User.html</id>
-    <title>Linux to a lifetime Windows User</title>
+    <title>Linux To A Lifetime Windows User</title>
     <updated>2019-04-11T20:41:38+00:00</updated>
     <published>2019-04-11T20:41:38+00:00</published>
     <link href="/posts%5CLinux_to_a_lifetime_Windows_User.html"/>
-    <summary># Linux to a lifetime Windows User...</summary>
+    <summary>tags: [linux] # Linux to a lifetime Windows User Microsoft Windows was the first operating system that I had ever used. My first computer was a hand-me-down Windows XP desktop from my parents. I had never had the chance to try an Apple computer until middle school. The school district there had used all Apple products. Not until graduating High School and teaching myself to code did I ever install my own Linux distro. ## What the heck is a Linux and who makes it? I do not remember the first time that I heard about Linux, but the concept...</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
-        <h1>Linux to a lifetime Windows User</h1>
+        <p>tags: [linux]</p>
+<h1>Linux to a lifetime Windows User</h1>
 <p>Microsoft Windows was the first operating system that I had ever used. My first computer was a hand-me-down Windows XP desktop from my parents. I had never had the chance to try an Apple computer until middle school. The school district there had used all Apple products. Not until graduating High School and teaching myself to code did I ever install my own Linux distro.</p>
 <h2>What the heck is a Linux and who makes it?</h2>
 <p>I do not remember the first time that I heard about Linux, but the concept seemed very different from what I had expected about computers at the time. I did not understand how a free piece of software could be distributed. How can people work together to create something that is not maintained by one company, calling all the shots. How could something distributed and developed by hundreds of people work in an &quot;open source&quot; environment. And if there are more than one distribution, how could they all call themselves &quot;<em>Linux</em>&quot;.</p>
@@ -512,14 +520,15 @@ class HomePage extends Page
     </content>
   </entry><entry>
     <id>/posts%5CBugs_I_needed_a_user_to_find.html</id>
-    <title>Bugs I needed a user to find</title>
+    <title>Bugs I Needed A User To Find</title>
     <updated>2019-03-19T17:55:09+00:00</updated>
     <published>2019-03-19T17:55:09+00:00</published>
     <link href="/posts%5CBugs_I_needed_a_user_to_find.html"/>
-    <summary># Bugs I needed a user to find...</summary>
+    <summary>tags: [css] # Bugs I needed a user to find Using things more often makes them easier to use again. When I work on projects, I know what I want the project to be at the end. I know what it should look like and how I want to work. But then there are things that I do not think of. Recently, I have finished a list of changes that I would make to my portfolio and personal projects. I finished everything task list, and to me, I thought everything looked good. I started to show my portfolio to people...</summary>
     <content type="html" xml:lang="en" xml:base="">
         <![CDATA[
-        <h1>Bugs I needed a user to find</h1>
+        <p>tags: [css]</p>
+<h1>Bugs I needed a user to find</h1>
 <p>Using things more often makes them easier to use again. When I work on projects, I know what I want the project to be at the end. I know what it should look like and how I want to work. But then there are things that I do not think of. Recently, I have finished a list of changes that I would make to my portfolio and personal projects.</p>
 <p>I finished everything task list, and to me, I thought everything looked good. I started to show my portfolio to people I knew. I asked them what they thought and what they suggested. One person was having a hard time using the navigation, something that I did not expect to be a snag. I did not blame her, and decided to redo the navigation to make it easier.</p>
 <p>What I noticed first was that it was not obvious that any content existed further down the page. I thought of ways I could clue the user into scrolling down. I came up on the idea of a downwards pointing arrow that bobs and disappears after scrolling.</p>
