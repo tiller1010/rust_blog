@@ -40,6 +40,14 @@
 <footer class="fw-typography-spacing">
   <div class="fw-container">
     <div class="fw-space">
+      <div class="flex-container flex-horizontal-center social-links">
+        <a href="https://github.com/tiller1010" target="_blank" aria-label="GitHub">
+          <img src="images/github-icon-logo.png" alt="GitHub">
+        </a>
+        <a href="https://www.youtube.com/@1010tiller" target="_blank" aria-label="YouTube">
+          <img src="images/youtube-icon-logo.png" alt="YouTube">
+        </a>
+      </div>
       <p class="text-center">
         {{ config.footer_note }}
       </p>
