@@ -2,6 +2,7 @@
 
 {% block title %}
   <title>{{ post.title }}</title>
+  <meta name="description" content="{{ post.headers.description }}">
 {% endblock title %}
 
 {%- block css %}{% endblock css -%}

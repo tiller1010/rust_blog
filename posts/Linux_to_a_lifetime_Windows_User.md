@@ -1,5 +1,6 @@
 created: 2019-04-11T20:41:38+00:00
 tags: [linux]
+description: "Microsoft Windows was the first operating system that I had ever used. My first computer was a hand-me-down Windows XP desktop from my parents. I had never had the chance to try an Apple computer until middle school. The school district there had used all Apple products. Not until graduating High School and teaching myself to code did I ever install my own Linux distro."
 
 # Linux to a lifetime Windows User
 

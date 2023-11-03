@@ -1,5 +1,6 @@
 created: 2021-01-26T02:33:05+00:00
 tags: [expo]
+description: "Most Web Developers have never had the experience of building a mobile app. The task may seem daunting and outside of the usual comfort zone. You might be starting with no Java or Swift experience. Learning both will take some time, and you would need to manage two codebases. Lucky for us, there is React Native and Expo."
 
 # Take Your Web App from React To React Native
 

@@ -1,5 +1,6 @@
 created: 2019-09-14T13:22:52+00:00
 tags: [git]
+description: "I am a few weeks into my first job as a junior web developer. I am thrilled to become part of an active development team. I had practiced and learned on my own, and now I must do so in a team. The first few days have taught me a few things about working in a business setting. I have learned that it is important to keep track of the time that I put into my tasks. I am becoming more familiar with the process of submitting pull requests and receiving code reviews. I have learned to keep track of cards and organize my assignments with Trello."
 
 # Becoming part of a team
 

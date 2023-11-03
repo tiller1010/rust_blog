@@ -2,6 +2,7 @@
 
 {% block title %}
   <title>{{ config.site_name }}</title>
+  <meta name="description" content="{{ config.site_motto }}">
 {% endblock title %}
 
 {% block css %}

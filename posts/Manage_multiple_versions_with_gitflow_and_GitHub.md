@@ -1,5 +1,6 @@
 created: 2022-09-04T21:46:01+00:00
 tags: [actions]
+description: "Imagine this: you want to add a new feature to a repository, but it involves a change that will break backward compatibility. You could release a new major version, but other repositories may depend on the previous version of your software."
 
 # Manage multiple versions with GitFlow and GitHub
 
