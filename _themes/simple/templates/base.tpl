@@ -10,6 +10,17 @@
   {%- block css %}{% endblock css -%}
   <script src="static/bundle.js"></script>
   {%- block head %}{% endblock head -%}
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8W1TSLCMEG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-8W1TSLCMEG');
+  </script>
+
 </head>
 <body>
 <header>
