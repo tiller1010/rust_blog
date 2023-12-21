@@ -166,6 +166,10 @@ main a sup {
 }
 
 /* Custom Stuff Is Mostly Down Here */
+h2 {
+  --_fontSizes_desktop_fontSize: 1.75rem;
+}
+
 a.title {
   display: inline-block;
   text-decoration: none;

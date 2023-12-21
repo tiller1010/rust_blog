@@ -16,6 +16,7 @@ const fwProperties = {
   componentTypographyProperties_HeadingMargin: '50px 0 10px 0',
   elementPProperties_margin: '0 0 10px 0',
   layoutContainerWidth: '800px',
+  fontText: 'monospace',
 }
 
 initFramewerk();
