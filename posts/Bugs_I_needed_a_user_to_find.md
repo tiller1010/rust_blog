@@ -1,5 +1,5 @@
 created: 2019-03-19T17:55:09+00:00
-tags: [css]
+tags: [web_development,css]
 description: "Using things more often makes them easier to use again. When I work on projects, I know what I want the project to be at the end. I know what it should look like and how I want to work. But then there are things that I do not think of. Recently, I have finished a list of changes that I would make to my portfolio and personal projects."
 
 # Bugs I needed a user to find

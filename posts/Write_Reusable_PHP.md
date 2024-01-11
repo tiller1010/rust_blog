@@ -1,5 +1,5 @@
 created: 2021-07-05T00:15:38+00:00
-tags: [module]
+tags: [web_development,module]
 description: "Have you ever found yourself writing code with a sense Déjà vu? You feel as though the code you are writing has already been written somewhere else. This could potentially be within the same project or even the same file."
 
 # Write Reusable PHP

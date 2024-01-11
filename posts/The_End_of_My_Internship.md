@@ -1,5 +1,5 @@
 created: 2019-08-06T17:04:17+00:00
-tags: [clients]
+tags: [web_development,clients]
 description: "I got my first web development Internship. It has been a twelve week program, rebuilding site in the company's framework. During this time, I took time off from work so I could continue to my self-education in my spare time. This gave me much more flexibility to practice and learn."
 
 # The End of My Internship

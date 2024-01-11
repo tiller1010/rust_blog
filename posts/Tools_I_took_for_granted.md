@@ -1,5 +1,5 @@
 created: 2020-03-08T17:30:08+00:00
-tags: [cms]
+tags: [web_development,cms]
 description: "With today's modern day-to-day workflow, it is easy to feel spoiled with all of the handy tools at our disposal. Tools like Git allows us to rollback to any previous state of our applications, just in case something were to go horribly wrong. A Content Management System (CMS) allows us to easily update content, without ever touching the code. Package managers like NPM and Composer can provide our project with all of the dependencies it needs simply by running a command. But sometimes, these tools may not be available to you. You might remotely connected to a client's server, which can lack the software you would commonly use in your own environment. And developers are not always working on new code. A majority of time is spent working on existing code. Some of that code may feel severely antiquated from what we are used to."
 
 # Tools I took for granted

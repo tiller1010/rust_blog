@@ -1,5 +1,5 @@
 created: 2023-10-03T08:36:50.8779139-04:00
-tags: [rust]
+tags: [web_development,rust]
 description: "WordPress is a great platform to get started blogging with, but for me, it's more than what I really need. I don't need a database, I don't need a web server, and I don't need a CMS. At the end of the day, all I really need is static HTML, CSS, and JavaScript."
 
 # Rebuilding a WordPress blog with rust
