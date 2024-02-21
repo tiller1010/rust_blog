@@ -2,7 +2,8 @@ created: 2023-12-09T18:19:34.1100579-05:00
 tags: [ai,language_learning,education]
 description: Why You Should Build a Language Learning App in 2024. At least 30 million people started learning a new language after the Covid-19 pandemic. The number of people learning a new language is expected to grow by 20% in 2024. Here are some ways you can build a great language-learning app in 2024.
 
-## Why You Should Build a Language Learning App in 2024
+# Developing a Language Learning App
+
 At least 30 million people started learning a new language after the Covid-19 pandemic. The number of people learning a new language is expected to grow by 20% in 2024. Here are some ways you can build a great language-learning app in 2024.
 
 ## Use characters

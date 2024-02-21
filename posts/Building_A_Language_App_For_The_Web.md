@@ -2,6 +2,8 @@ created: 2024-01-07T13:50:29.8443461-05:00
 tags: [web_development,language_learning,education,cms]
 description: Building a language learning app for the web is a great way to reach a wide audience. Here are some things to keep in mind while developing a language-learning app on the web.
 
+# Building A Language App For The Web
+
 ## A Growing E-Learning Market
 Did you know that the e-learning market is expected to reach $325 billion by 2025? That’s a $72 billion increase from 2017. The e-learning industry is booming, and it’s not going to slow down anytime soon. Here are some things to keep in mind while developing a language-learning app on the web.
 
