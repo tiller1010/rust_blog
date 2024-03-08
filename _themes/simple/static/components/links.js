@@ -19,6 +19,7 @@ export const addLinkEventListeners = () => {
       e.preventDefault();
       if (typeof window.getPageContent === 'function') {
         getPageContent(link.href);
+        document.title = link.textContent;
       }
       history.pushState({}, '', link.href);
     });
