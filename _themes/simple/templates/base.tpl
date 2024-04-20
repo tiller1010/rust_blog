@@ -30,7 +30,7 @@
         <div id="site-name">
           {{ config.site_name }}
         </div>
-        <div id="site-motto">{{ config.site_motto }}</div>
+        <p id="site-motto">{{ config.site_motto }}</p>
       </a>
     </div>
     <nav id="header-nav">
