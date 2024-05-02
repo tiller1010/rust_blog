@@ -31,3 +31,5 @@ Your app should include some form of CAPT. This will allow students to practice 
 ## Conclusion
 Language learning is a growing industry. The number of people learning a new language has surged in recent years. This trend is expected to continue into 2024. There are many ways you can build a great language-learning app in 2024. You can use characters to add cultural authenticity to your app. You can encourage the use of Pop Culture in your app. You can use AI to simulate real-life conversations. You can focus on comprehensibility over accuracy. These are just some of the ways you can build a great language-learning app in 2024.
 
+To learn more about language-learning, check out our blog specifically on the topic: [https://blog.lingualearn.net](https://blog.lingualearn.net).
+

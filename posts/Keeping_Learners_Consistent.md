@@ -28,3 +28,6 @@ Frustrated users will be eager to share their pain points while using your app. 
 
 ## Conclusion
 Consistency is key to user retention. A language learning app should encourage consistent use of the app. This should be done in ways that will **truly** engage users to take action. A reminder email is worthless if it does not remind the user of why they are learning a language to begin with. Using churn surveys is an effective way to determine why users leave your app so that you can work on keeping more of them.
+
+To learn more about language-learning, check out our blog specifically on the topic: [https://blog.lingualearn.net](https://blog.lingualearn.net).
+

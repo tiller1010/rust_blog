@@ -22,3 +22,6 @@ In contrast to browser translations, you could also define your translations. Th
 
 Taking this a step further, you may decide to use a translation API like [Google Translate](https://cloud.google.com/translate/docs/). This would allow you to translate content on the fly, and to support a wider range of languages. However, this would also require you to pay for the API and implement a caching strategy to avoid exceeding your quota. The [text-translator Rust Crate](https://crates.io/crates/text-translator) allows you to do this programmatically.
 
+## Conclusion
+To learn more about language-learning, check out our blog specifically on the topic: [https://blog.lingualearn.net](https://blog.lingualearn.net).
+
